@@ -1,0 +1,121 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens */
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand palette (from logo) */
+  --navy: #111b3a;
+  --navy-2: #1d2a52;
+  --gold: #c8a66a;
+  --gold-soft: #e7d3a4;
+  --paper: #f6f7fa;
+  --ink: #3a3a3a;
+
+  --background: #ffffff;
+  --foreground: #111b3a;
+  --card: #ffffff;
+  --card-foreground: #111b3a;
+  --popover: #ffffff;
+  --popover-foreground: #111b3a;
+
+  --primary: #111b3a;
+  --primary-foreground: #ffffff;
+  --secondary: #f6f7fa;
+  --secondary-foreground: #111b3a;
+  --muted: #f6f7fa;
+  --muted-foreground: #6b6f7d;
+  --accent: #c8a66a;
+  --accent-foreground: #111b3a;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #ffffff;
+  --border: #e6e8ef;
+  --input: #e6e8ef;
+  --ring: #c8a66a;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-6xl px-6;
+}
+
+@utility eyebrow {
+  @apply inline-block text-[0.72rem] font-medium uppercase tracking-[0.28em] text-gold;
+}
+
+@utility btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3 text-sm font-medium tracking-wide text-navy transition-all duration-300 hover:bg-gold-soft hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+}
+
+@utility btn-outline-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm border border-gold/70 px-6 py-3 text-sm font-medium tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold;
+}
+
+@utility btn-ghost-navy {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm border border-navy/15 px-6 py-3 text-sm font-medium text-navy transition-all duration-300 hover:border-navy hover:bg-navy hover:text-white;
+}
+
+@utility hairline {
+  @apply block h-px w-12 bg-gold;
+}
