@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { HeartHandshake, Target, Lock, Globe2 } from "lucide-react";
 import { SectionTitle } from "./SectionTitle";
+import styles from "./Sobre.module.css";
 
 const PILARES = [
   {
@@ -27,14 +28,14 @@ const PILARES = [
 
 export function Sobre() {
   return (
-    <section id="sobre" className="relative bg-white py-24 sm:py-32">
-      <div className="container-x grid gap-16 lg:grid-cols-2 lg:items-start">
+    <section id="sobre" className={styles.section}>
+      <div className={`container-x ${styles.container}`}>
         <SectionTitle
           eyebrow="Sobre o escritório"
           title={
             <>
               Um escritório novo,{" "}
-              <span className="italic text-gold">construído sobre</span>{" "}
+              <span className="italic-gold">construído sobre</span>{" "}
               relações de confiança.
             </>
           }
@@ -49,7 +50,7 @@ export function Sobre() {
           }
         />
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className={styles.grid}>
           {PILARES.map((p, i) => (
             <motion.div
               key={p.title}
@@ -57,14 +58,11 @@ export function Sobre() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group rounded-sm border border-border bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-[0_20px_50px_-30px_rgba(17,27,58,0.35)]"
+              className={styles.card}
             >
-              <p.icon
-                className="h-6 w-6 text-gold transition-transform group-hover:scale-110"
-                strokeWidth={1.4}
-              />
-              <h3 className="mt-4 font-serif text-lg text-navy">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/75">{p.text}</p>
+              <p.icon className={styles.icon} strokeWidth={1.4} />
+              <h3 className={styles.title}>{p.title}</h3>
+              <p className={styles.text}>{p.text}</p>
             </motion.div>
           ))}
         </div>

@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock, ExternalLink, Loader2 } from "lucide-react";
 import { AREAS, EMAILJS, SITE } from "@/data/site";
 import { SectionTitle } from "./SectionTitle";
+import styles from "./Contato.module.css";
 
 const phoneMask = (v) =>
   v
@@ -69,32 +70,28 @@ export function Contato() {
   const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapsQuery)}&output=embed`;
 
   return (
-    <section id="contato" className="relative bg-paper py-24 sm:py-32">
+    <section id="contato" className={styles.section}>
       <div className="container-x">
         <SectionTitle
           eyebrow="Contato"
           title={
             <>
-              Fale com o escritório. <span className="italic text-gold">Nós retornamos.</span>
+              Fale com o escritório. <span className="italic-gold">Nós retornamos.</span>
             </>
           }
           description="Preencha o formulário ou utilize um dos canais diretos. O primeiro retorno é feito por uma das sócias."
           align="center"
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            noValidate
-            className="rounded-sm bg-white p-8 shadow-[0_20px_60px_-40px_rgba(17,27,58,0.35)] sm:p-10"
-          >
-            <div className="grid gap-5 sm:grid-cols-2">
+        <div className={styles.grid}>
+          <form onSubmit={handleSubmit(onSubmit)} noValidate className={styles.form}>
+            <div className={styles.fieldsGrid}>
               <Field label="Nome completo" error={errors.nome?.message}>
                 <input
                   {...register("nome")}
                   type="text"
                   autoComplete="name"
-                  className="input"
+                  className={styles.input}
                   placeholder="Seu nome"
                 />
               </Field>
@@ -104,7 +101,7 @@ export function Contato() {
                   value={telefone}
                   onChange={(e) => setValue("telefone", phoneMask(e.target.value), { shouldValidate: true })}
                   inputMode="tel"
-                  className="input"
+                  className={styles.input}
                   placeholder="(51) 90000-0000"
                 />
               </Field>
@@ -113,12 +110,12 @@ export function Contato() {
                   {...register("email")}
                   type="email"
                   autoComplete="email"
-                  className="input"
+                  className={styles.input}
                   placeholder="voce@email.com"
                 />
               </Field>
               <Field label="Assunto" error={errors.assunto?.message}>
-                <select {...register("assunto")} defaultValue="" className="input">
+                <select {...register("assunto")} defaultValue="" className={styles.input}>
                   <option value="" disabled>
                     Selecione uma área
                   </option>
@@ -130,17 +127,17 @@ export function Contato() {
                   <option value="Outro">Outro</option>
                 </select>
               </Field>
-              <Field label="Mensagem" error={errors.mensagem?.message} className="sm:col-span-2">
+              <Field label="Mensagem" error={errors.mensagem?.message} full>
                 <textarea
                   {...register("mensagem")}
                   rows={5}
-                  className="input resize-none"
+                  className={`${styles.input} ${styles.textarea}`}
                   placeholder="Descreva brevemente sua situação."
                 />
               </Field>
             </div>
 
-            <button type="submit" disabled={loading} className="btn-gold mt-8 w-full sm:w-auto">
+            <button type="submit" disabled={loading} className={`btn-gold ${styles.submitButton}`}>
               {loading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" /> Enviando...
@@ -149,12 +146,12 @@ export function Contato() {
                 "Enviar mensagem"
               )}
             </button>
-            <p className="mt-4 text-xs text-ink/60">
+            <p className={styles.consentText}>
               Ao enviar, você concorda em ser contatado pelos canais informados.
             </p>
           </form>
 
-          <div className="space-y-6">
+          <div className={styles.infoColumn}>
             <InfoRow icon={MapPin} title="Endereço">
               {SITE.address.street}
               <br />
@@ -163,12 +160,12 @@ export function Contato() {
               CEP {SITE.address.zip}
             </InfoRow>
             <InfoRow icon={Phone} title="Telefone / WhatsApp">
-              <a href={`tel:+${SITE.phoneRaw}`} className="hover:text-gold">
+              <a href={`tel:+${SITE.phoneRaw}`} className={styles.infoLink}>
                 {SITE.phone}
               </a>
             </InfoRow>
             <InfoRow icon={Mail} title="E-mail">
-              <a href={`mailto:${SITE.email}`} className="hover:text-gold">
+              <a href={`mailto:${SITE.email}`} className={styles.infoLink}>
                 {SITE.email}
               </a>
             </InfoRow>
@@ -178,20 +175,15 @@ export function Contato() {
               Atendimento on-line em todo o Brasil.
             </InfoRow>
 
-            <div className="overflow-hidden rounded-sm border border-border bg-white">
+            <div className={styles.mapWrap}>
               <iframe
                 title="Localização do escritório"
                 src={mapsEmbed}
-                className="h-56 w-full grayscale-[40%] contrast-[0.95]"
+                className={styles.mapIframe}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <a
-                href={mapsHref}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between border-t border-border px-5 py-3 text-sm text-navy hover:text-gold"
-              >
+              <a href={mapsHref} target="_blank" rel="noreferrer" className={styles.mapLink}>
                 Abrir no Google Maps
                 <ExternalLink className="h-4 w-4" strokeWidth={1.5} />
               </a>
@@ -199,46 +191,28 @@ export function Contato() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        .input {
-          width: 100%;
-          border: 1px solid var(--border);
-          background: white;
-          padding: 0.75rem 0.9rem;
-          font-size: 0.9rem;
-          color: var(--ink);
-          border-radius: 2px;
-          transition: border-color .2s, box-shadow .2s;
-        }
-        .input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,166,106,.18); }
-      `}</style>
     </section>
   );
 }
 
-function Field({ label, error, children, className = "" }) {
+function Field({ label, error, children, full = false }) {
   return (
-    <label className={`block ${className}`}>
-      <span className="mb-1.5 block text-xs font-medium uppercase tracking-widest text-navy/70">
-        {label}
-      </span>
+    <label className={`${styles.fieldLabel} ${full ? styles.fieldFull : ""}`}>
+      <span className={styles.fieldLabelText}>{label}</span>
       {children}
-      {error && <span className="mt-1 block text-xs text-destructive">{error}</span>}
+      {error && <span className={styles.fieldError}>{error}</span>}
     </label>
   );
 }
 
 function InfoRow({ icon: Icon, title, children }) {
   return (
-    <div className="flex gap-4 rounded-sm border border-border bg-white p-5">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy text-gold">
+    <div className={styles.infoRow}>
+      <div className={styles.infoIconWrap}>
         <Icon className="h-4 w-4" strokeWidth={1.5} />
       </div>
-      <div className="text-sm leading-relaxed text-ink/85">
-        <div className="mb-1 text-[0.7rem] font-medium uppercase tracking-widest text-gold">
-          {title}
-        </div>
+      <div className={styles.infoText}>
+        <div className={styles.infoTitle}>{title}</div>
         {children}
       </div>
     </div>

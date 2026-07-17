@@ -1,12 +1,4 @@
-import {
-  Landmark,
-  Gavel,
-  Users,
-  ShoppingBag,
-  ShieldCheck,
-  Briefcase,
-  Car,
-} from "lucide-react";
+import { Landmark, Gavel, Users, ShoppingBag, ShieldCheck, Briefcase, Car } from "lucide-react";
 
 export const SITE = {
   name: "Hermann, Piccoli & Montezano Advogadas Associadas",
@@ -25,8 +17,7 @@ export const SITE = {
   instagram: "https://www.instagram.com/hpmadvogadas/",
   instagramHandle: "@hpmadvogadas",
   hours: "Segunda a sexta, 09h às 17h",
-  mapsQuery:
-    "Rua Anita Garibaldi, 1650, sala 1, Boa Vista, Porto Alegre - RS, 90480-200",
+  mapsQuery: "Rua Anita Garibaldi, 1650, sala 1, Boa Vista, Porto Alegre - RS, 90480-200",
 };
 
 // TODO: replace with the real Cal.com / Calendly URL once the account is created.
@@ -49,22 +40,19 @@ export const AREAS = [
   {
     slug: "direito-bancario",
     title: "Direito Bancário",
-    short:
-      "Revisional de contratos, ações de fraude, superendividamento e gestão de passivos.",
+    short: "Revisional de contratos, ações de fraude, superendividamento e gestão de passivos.",
     icon: Landmark,
   },
   {
     slug: "direito-criminal",
     title: "Direito Criminal",
-    short:
-      "Defesa técnica em inquéritos e ações penais, com atenção a medidas protetivas.",
+    short: "Defesa técnica em inquéritos e ações penais, com atenção a medidas protetivas.",
     icon: Gavel,
   },
   {
     slug: "direito-familia",
     title: "Direito de Família",
-    short:
-      "Alimentos, guarda, divórcio, união estável, inventário e curatela.",
+    short: "Alimentos, guarda, divórcio, união estável, inventário e curatela.",
     icon: Users,
   },
   {
@@ -77,22 +65,19 @@ export const AREAS = [
   {
     slug: "direito-previdenciario",
     title: "Direito Previdenciário",
-    short:
-      "Benefícios do INSS e RPPS, aposentadorias, incapacidade, pensão, BPC/LOAS e revisões.",
+    short: "Benefícios do INSS e RPPS, aposentadorias, incapacidade, pensão, BPC/LOAS e revisões.",
     icon: ShieldCheck,
   },
   {
     slug: "direito-trabalhista",
     title: "Direito Trabalhista",
-    short:
-      "Atuação para trabalhadores e empresas, com foco em gestão trabalhista preventiva.",
+    short: "Atuação para trabalhadores e empresas, com foco em gestão trabalhista preventiva.",
     icon: Briefcase,
   },
   {
     slug: "direito-transito",
     title: "Direito de Trânsito",
-    short:
-      "Defesas administrativas, recursos e ações relacionadas à habilitação e infrações.",
+    short: "Defesas administrativas, recursos e ações relacionadas à habilitação e infrações.",
     icon: Car,
   },
 ];

@@ -1,40 +1,35 @@
 import { Instagram } from "lucide-react";
 import { AREAS, NAV, SITE } from "@/data/site";
 import { Monogram } from "./Monogram";
+import styles from "./Footer.module.css";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative overflow-hidden bg-navy text-white/80">
-      <div className="absolute -bottom-24 -right-16 text-gold/[0.05]">
+    <footer className={styles.footer}>
+      <div className={styles.monogramWrap}>
         <Monogram className="h-[360px] w-[560px]" strokeWidth={0.8} />
       </div>
 
-      <div className="container-x relative grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
+      <div className={`container-x ${styles.grid}`}>
         <div>
-          <div className="flex items-center gap-3 text-gold">
+          <div className={styles.logoRow}>
             <Monogram className="h-12 w-20" strokeWidth={1.25} />
           </div>
-          <p className="mt-4 font-serif text-lg text-white leading-tight">
-            Hermann, Piccoli & Montezano
-          </p>
-          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-gold">
-            Advogadas Associadas
-          </p>
-          <p className="mt-6 text-sm leading-relaxed text-white/60">
+          <p className={styles.brandName}>Hermann, Piccoli & Montezano</p>
+          <p className={styles.brandSubtitle}>Advogadas Associadas</p>
+          <p className={styles.brandText}>
             Advocacia com atendimento humanizado em Porto Alegre e on-line em
             todo o Brasil.
           </p>
         </div>
 
         <div>
-          <h4 className="text-[0.7rem] uppercase tracking-[0.28em] text-gold">
-            Navegação
-          </h4>
-          <ul className="mt-5 space-y-3 text-sm">
+          <h4 className={styles.heading}>Navegação</h4>
+          <ul className={styles.list}>
             {NAV.map((n) => (
               <li key={n.href}>
-                <a href={n.href} className="text-white/70 hover:text-gold">
+                <a href={n.href} className={styles.link}>
                   {n.label}
                 </a>
               </li>
@@ -43,35 +38,29 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-[0.7rem] uppercase tracking-[0.28em] text-gold">
-            Áreas
-          </h4>
-          <ul className="mt-5 space-y-3 text-sm">
+          <h4 className={styles.heading}>Áreas</h4>
+          <ul className={`${styles.list} ${styles.muted}`}>
             {AREAS.map((a) => (
-              <li key={a.slug} className="text-white/70">
-                {a.title}
-              </li>
+              <li key={a.slug}>{a.title}</li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h4 className="text-[0.7rem] uppercase tracking-[0.28em] text-gold">
-            Contato
-          </h4>
-          <ul className="mt-5 space-y-3 text-sm text-white/70">
+          <h4 className={styles.heading}>Contato</h4>
+          <ul className={`${styles.list} ${styles.muted}`}>
             <li>
               {SITE.address.street}
               <br />
               {SITE.address.district}, {SITE.address.city}
             </li>
             <li>
-              <a href={`tel:+${SITE.phoneRaw}`} className="hover:text-gold">
+              <a href={`tel:+${SITE.phoneRaw}`} className={styles.link}>
                 {SITE.phone}
               </a>
             </li>
             <li>
-              <a href={`mailto:${SITE.email}`} className="hover:text-gold">
+              <a href={`mailto:${SITE.email}`} className={styles.link}>
                 {SITE.email}
               </a>
             </li>
@@ -81,7 +70,7 @@ export function Footer() {
                 href={SITE.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 hover:text-gold"
+                className={styles.instagramLink}
               >
                 <Instagram className="h-4 w-4" strokeWidth={1.5} />
                 {SITE.instagramHandle}
@@ -91,8 +80,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="container-x flex flex-col items-start justify-between gap-3 py-6 text-xs text-white/50 sm:flex-row sm:items-center">
+      <div className={styles.bottomBar}>
+        <div className={`container-x ${styles.bottomInner}`}>
           <span>© {year} Hermann, Piccoli & Montezano Advogadas Associadas.</span>
           <span>
             Conteúdo meramente informativo, em conformidade com o Código de Ética

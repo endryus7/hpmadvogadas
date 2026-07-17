@@ -1,29 +1,30 @@
 import { motion } from "framer-motion";
 import { SCHEDULE_URL, whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
+import styles from "./CTA.module.css";
 
 export function CTA() {
   return (
-    <section className="relative overflow-hidden bg-navy py-24 text-white sm:py-32">
-      <div className="absolute -right-16 -top-16 text-gold/[0.06]">
+    <section className={styles.section}>
+      <div className={styles.monogramWrap}>
         <Monogram className="h-[420px] w-[640px]" strokeWidth={0.8} />
       </div>
 
-      <div className="container-x relative">
+      <div className={`container-x ${styles.inner}`}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center"
+          className={styles.content}
         >
           <span className="eyebrow">Vamos conversar</span>
-          <h2 className="mt-6 font-serif text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className={styles.title}>
             Descreva sua situação. Retornamos com uma{" "}
-            <span className="italic text-gold">análise cuidadosa</span> do próximo
+            <span className="italic-gold">análise cuidadosa</span> do próximo
             passo.
           </h2>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className={styles.buttons}>
             <a href={SCHEDULE_URL} target="_blank" rel="noreferrer" className="btn-gold">
               Agendar Atendimento
             </a>

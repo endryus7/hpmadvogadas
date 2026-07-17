@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { SectionTitle } from "./SectionTitle";
+import styles from "./ComoFunciona.module.css";
 
 const STEPS = [
   {
@@ -26,7 +27,7 @@ const STEPS = [
 
 export function ComoFunciona() {
   return (
-    <section className="relative bg-paper py-24 sm:py-32">
+    <section className={styles.section}>
       <div className="container-x">
         <SectionTitle
           eyebrow="Como funciona"
@@ -34,7 +35,7 @@ export function ComoFunciona() {
           align="center"
         />
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className={styles.grid}>
           {STEPS.map((s, i) => (
             <motion.div
               key={s.n}
@@ -42,14 +43,14 @@ export function ComoFunciona() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative"
+              className={styles.step}
             >
-              <div className="flex items-baseline gap-3">
-                <span className="font-serif text-4xl italic text-gold">{s.n}</span>
-                <span className="h-px flex-1 bg-gold/40" />
+              <div className={styles.numberRow}>
+                <span className={styles.number}>{s.n}</span>
+                <span className={styles.rule} />
               </div>
-              <h3 className="mt-4 font-serif text-xl text-navy">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/75">{s.text}</p>
+              <h3 className={styles.title}>{s.title}</h3>
+              <p className={styles.text}>{s.text}</p>
             </motion.div>
           ))}
         </div>

@@ -2,51 +2,61 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { SCHEDULE_URL, whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
+import styles from "./Hero.module.css";
+
+// Se quiser usar a logo real (PNG/SVG transparente) como marca d'água do
+// banner, em vez do SVG genérico do Monogram, descomente a linha abaixo e
+// troque o bloco indicado mais adiante.
+// import logoTransparente from "../../assets/images/logo-hpm-transparente.png";
 
 export function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy text-white"
-    >
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-navy-2" />
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, rgba(200,166,106,.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(200,166,106,.25) 1px, transparent 1px)",
-            backgroundSize: "120px 120px",
-          }}
-        />
-        <div className="absolute -right-24 top-1/3 -translate-y-1/2 text-gold/[0.05]">
+    <section id="inicio" className={styles.section}>
+      <div className={styles.bgWrap}>
+        <div className={styles.gradient} />
+        <div className={styles.gridPattern} />
+
+        {/* Marca d'água atual (SVG genérico) */}
+        <div className={styles.monogramWrap}>
           <Monogram className="h-[520px] w-[820px]" strokeWidth={0.8} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+
+        {/* Para usar a logo real no lugar do SVG acima, troque o bloco de
+            cima por este e importe a imagem no topo do arquivo:
+
+        <img
+          src={logoTransparente}
+          alt=""
+          aria-hidden="true"
+          className={styles.logoWatermarkImg}
+        />
+        */}
+
+        <div className={styles.bottomFade} />
       </div>
 
-      <div className="container-x relative py-32">
+      <div className={`container-x ${styles.inner}`}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3xl"
+          className={styles.content}
         >
           <span className="eyebrow">Advocacia · Porto Alegre / RS</span>
-          <h1 className="mt-6 font-serif text-4xl leading-[1.1] text-white sm:text-5xl lg:text-6xl">
+          <h1 className={styles.title}>
             Hermann, Piccoli &{" "}
-            <span className="italic text-gold">Montezano</span>
+            <span className="italic-gold">Montezano</span>
             <br />
             Advogadas Associadas
           </h1>
-          <span className="hairline mt-8" />
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+          <span className={`hairline ${styles.hairlineSpacing}`} />
+          <p className={styles.description}>
             Atuamos com atendimento humanizado, estratégia jurídica personalizada
             e discrição em cada etapa — para clientes em Porto Alegre e em todo o
             Brasil, presencialmente ou on-line.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className={styles.buttons}>
             <a href={SCHEDULE_URL} target="_blank" rel="noreferrer" className="btn-gold">
               Agendar Atendimento
             </a>
@@ -60,7 +70,7 @@ export function Hero() {
       <motion.a
         href="#sobre"
         aria-label="Rolar para a próxima seção"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-gold"
+        className={styles.scrollLink}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
       >

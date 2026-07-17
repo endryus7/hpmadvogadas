@@ -73,6 +73,12 @@
   --border: #e6e8ef;
   --input: #e6e8ef;
   --ring: #c8a66a;
+  --white: #ffffff;
+}
+
+.italic-gold {
+  font-style: italic;
+  color: var(--gold);
 }
 
 @layer base {
