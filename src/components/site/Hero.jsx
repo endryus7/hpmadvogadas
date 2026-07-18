@@ -4,10 +4,6 @@ import { SCHEDULE_URL, whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
 
-// Se quiser usar a logo real (PNG/SVG transparente) como marca d'água do
-// banner, em vez do SVG genérico do Monogram, descomente a linha abaixo e
-// troque o bloco indicado mais adiante.
-// import logoTransparente from "../../assets/images/logo-hpm-transparente.png";
 
 export function Hero() {
   return (
@@ -16,21 +12,10 @@ export function Hero() {
         <div className={styles.gradient} />
         <div className={styles.gridPattern} />
 
-        {/* Marca d'água atual (SVG genérico) */}
+        {/* Marca d'água atual */}
         <div className={styles.monogramWrap}>
           <Monogram className="h-[520px] w-[820px]" strokeWidth={0.8} />
         </div>
-
-        {/* Para usar a logo real no lugar do SVG acima, troque o bloco de
-            cima por este e importe a imagem no topo do arquivo:
-
-        <img
-          src={logoTransparente}
-          alt=""
-          aria-hidden="true"
-          className={styles.logoWatermarkImg}
-        />
-        */}
 
         <div className={styles.bottomFade} />
       </div>
@@ -44,10 +29,9 @@ export function Hero() {
         >
           <span className="eyebrow">Advocacia · Porto Alegre / RS</span>
           <h1 className={styles.title}>
-            Hermann, Piccoli &{" "}
-            <span className="italic-gold">Montezano</span>
+            Hermann, Piccoli & Montezano
             <br />
-            Advogadas Associadas
+            <span className="italic-gold">Advogadas Associadas</span>
           </h1>
           <span className={`hairline ${styles.hairlineSpacing}`} />
           <p className={styles.description}>

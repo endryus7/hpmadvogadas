@@ -29,7 +29,7 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   color: var(--white);
 }
 
@@ -39,7 +39,7 @@
 }
 @media (min-width: 640px) {
   .logoImg {
-    height: 3rem;
+    height: 4rem;
   }
 }
 
@@ -79,11 +79,13 @@
 
 .navLink {
   font-size: 0.875rem;
+  padding-bottom: 4px;
   color: rgba(255, 255, 255, 0.85);
   transition: color 0.2s ease;
 }
 .navLink:hover {
   color: var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
 
 .rightGroup {

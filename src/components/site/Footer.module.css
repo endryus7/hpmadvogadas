@@ -31,9 +31,6 @@
   }
 }
 
-/* No mobile (coluna única), cada bloco a partir do segundo ganha uma linha
-   divisória e um respiro extra acima, para separar visualmente as seções
-   (Navegação, Áreas, Contato) que antes ficavam "coladas" umas nas outras. */
 .gridCol {
   padding-top: 0;
 }

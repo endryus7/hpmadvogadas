@@ -30,9 +30,6 @@
   background-size: 120px 120px;
 }
 
-/* Marca d'água decorativa. Se usar o SVG <Monogram />, a cor herda de "color"
-   abaixo (currentColor). Se trocar por <img src={logoTransparente} />, use a
-   variante .logoWatermarkImg (mais abaixo) em vez desta. */
 .monogramWrap {
   position: absolute;
   right: -6rem;
@@ -41,8 +38,6 @@
   color: rgba(200, 166, 106, 0.05);
 }
 
-/* Variante para usar a logo PNG/SVG real como marca d'água, já que imagem
-   raster não aceita "currentColor" — controla a opacidade direto. */
 .logoWatermarkImg {
   position: absolute;
   right: -4rem;

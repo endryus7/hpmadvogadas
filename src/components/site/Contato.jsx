@@ -111,7 +111,7 @@ export function Contato() {
                   type="email"
                   autoComplete="email"
                   className={styles.input}
-                  placeholder="voce@email.com"
+                  placeholder="email@hotmail.com"
                 />
               </Field>
               <Field label="Assunto" error={errors.assunto?.message}>
