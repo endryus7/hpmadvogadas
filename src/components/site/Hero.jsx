@@ -8,7 +8,7 @@ import {
   Scale,
   Lock,
 } from "lucide-react";
-import { SCHEDULE_URL, whatsappUrl } from "@/data/site";
+import { mailtoUrl, whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
 import heroFoto from "../../assets/images/hero-foto.png";
@@ -69,7 +69,7 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <a href={SCHEDULE_URL} target="_blank" rel="noreferrer" className="btn-gold">
+            <a href={mailtoUrl()} className="btn-gold">
               <Calendar className="h-4 w-4" strokeWidth={1.5} />
               Agendar Atendimento
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />

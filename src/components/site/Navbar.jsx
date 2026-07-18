@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NAV, SCHEDULE_URL, SITE } from "@/data/site";
+import { NAV, SITE, whatsappUrl } from "@/data/site";
 import logo from "../../assets/images/logo.png";
 import styles from "./Navbar.module.css";
 
@@ -48,7 +48,7 @@ export function Navbar() {
           >
             <Instagram className="h-5 w-5" strokeWidth={1.5} />
           </a>
-          <a href={SCHEDULE_URL} target="_blank" rel="noreferrer" className="btn-gold">
+          <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-gold">
             Agendar Atendimento
           </a>
         </div>
@@ -83,7 +83,7 @@ export function Navbar() {
                 </a>
               ))}
               <a
-                href={SCHEDULE_URL}
+                href={whatsappUrl()}
                 target="_blank"
                 rel="noreferrer"
                 className={`btn-gold ${styles.mobileSchedule}`}

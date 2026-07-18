@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SCHEDULE_URL, whatsappUrl } from "@/data/site";
+import { mailtoUrl, whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./CTA.module.css";
 
@@ -25,7 +25,7 @@ export function CTA() {
             passo.
           </h2>
           <div className={styles.buttons}>
-            <a href={SCHEDULE_URL} target="_blank" rel="noreferrer" className="btn-gold">
+            <a href={mailtoUrl()} className="btn-gold">
               Agendar Atendimento
             </a>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">

@@ -22,13 +22,17 @@ export const SITE = {
   mapsQuery: "Rua Anita Garibaldi, 1650, sala 1, Boa Vista, Porto Alegre - RS, 90480-200",
 };
 
-// Cal.com / Calendly URL
-export const SCHEDULE_URL = "https://cal.com/hpmadvogadas";
-
 export const WHATSAPP_DEFAULT_MSG = "Olá! Gostaria de agendar um atendimento.";
 
 export function whatsappUrl(message = WHATSAPP_DEFAULT_MSG) {
   return `https://wa.me/${SITE.phoneRaw}?text=${encodeURIComponent(message)}`;
+}
+
+export function mailtoUrl(
+  subject = "Agendamento de atendimento",
+  body = "Olá, gostaria de agendar um atendimento.",
+) {
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 // EmailJS
