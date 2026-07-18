@@ -9,6 +9,7 @@
   color: var(--white);
 }
 
+/* Camada de fundo (gradiente escuro), cobre o Hero inteiro, atrás de tudo */
 .bgWrap {
   position: absolute;
   inset: 0;
@@ -30,85 +31,162 @@
   background-size: 120px 120px;
 }
 
-.monogramWrap {
-  position: absolute;
-  right: -6rem;
-  top: 33.333%;
-  transform: translateY(-50%);
-  color: rgba(200, 166, 106, 0.05);
-}
-
-.logoWatermarkImg {
-  position: absolute;
-  right: -4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 640px;
-  max-width: 60vw;
-  opacity: 0.07;
-  pointer-events: none;
-}
-
 .bottomFade {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--navy), rgba(17, 27, 58, 0.4), transparent);
 }
 
-.inner {
+/* Banner de foto: painel que ocupa 100% da ALTURA do Hero (não a altura do
+   texto), colado nas bordas direita/topo/base, como uma foto de capa.
+   Some no mobile/tablet — só aparece a partir de telas grandes (lg). */
+.photoBanner {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .photoBanner {
+    display: block;
+    position: absolute;
+    inset-block: 0;
+    right: 0;
+    width: 50%;
+    overflow: hidden;
+    z-index: -5;
+  }
+}
+
+.photoImg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Painel alternativo (sem foto real ainda) — gradiente + monograma vetor.
+   Só é renderizado quando não há heroFoto. */
+.photoFallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, var(--navy-2), var(--navy));
+  color: rgba(200, 166, 106, 0.3);
+}
+
+/* Esmaece a lateral esquerda do banner para fundir suavemente com o fundo
+   navy do texto — cria a transição vista no modelo de referência. */
+.photoFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--navy) 0%,
+    rgba(17, 27, 58, 0.7) 10%,
+    rgba(17, 27, 58, 0.35) 22%,
+    rgba(17, 27, 58, 0.08) 38%,
+    transparent 55%
+  );
+}
+
+/* Layout do texto — coluna única. O painel de foto agora é posicionado de
+   forma independente (absolute), não faz mais parte deste grid, então o
+   texto não fica mais "espremendo" a altura da foto. */
+.layout {
   position: relative;
-  padding-block: 5rem;
+  z-index: 2;
+  padding-block: 7rem 4rem;
 }
 @media (min-width: 640px) {
-  .inner {
-    padding-block: 8rem;
+  .layout {
+    padding-block: 9rem 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .layout {
+    padding-block: 6rem;
   }
 }
 
 .content {
-  max-width: 48rem;
+  position: relative;
+  z-index: 2;
+  max-width: 34rem;
 }
 
 .title {
   margin-top: 1.5rem;
   font-family: var(--font-serif);
   font-size: 2.25rem;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--white);
 }
 @media (min-width: 640px) {
   .title {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 }
 @media (min-width: 1024px) {
   .title {
-    font-size: 3.75rem;
+    font-size: 3.25rem;
   }
 }
 
 .hairlineSpacing {
-  margin-top: 2rem;
+  margin-top: 1.75rem;
+}
+
+.tagline {
+  margin-top: 1.5rem;
+  max-width: 30rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .description {
-  margin-top: 2rem;
-  max-width: 42rem;
-  font-size: 1rem;
-  line-height: 1.625;
-  color: rgba(255, 255, 255, 0.75);
-}
-@media (min-width: 640px) {
-  .description {
-    font-size: 1.125rem;
-  }
+  margin-top: 1.25rem;
+  max-width: 30rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .buttons {
-  margin-top: 2.5rem;
+  margin-top: 2.25rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.badges {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.badgeIcon {
+  height: 1.4rem;
+  width: 1.4rem;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.badgeLabel {
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 6.5rem;
 }
 
 .scrollLink {
@@ -116,6 +194,7 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
   color: rgba(255, 255, 255, 0.6);
   transition: color 0.2s ease;
 }
