@@ -8,7 +8,7 @@ import {
   Scale,
   Lock,
 } from "lucide-react";
-import { mailtoUrl, whatsappUrl } from "@/data/site";
+import { whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
 import heroFoto from "../../assets/images/hero-foto.png";
@@ -22,15 +22,14 @@ const TRUST_BADGES = [
 export function Hero() {
   return (
     <section id="inicio" className={styles.section}>
-      {/* Camada de fundo: gradiente escuro que cobre o Hero inteiro */}
+      {/* Camada de fundo, gradiente escuro cobre o Hero todo */}
       <div className={styles.bgWrap}>
         <div className={styles.gradient} />
         <div className={styles.gridPattern} />
         <div className={styles.bottomFade} />
       </div>
 
-      {/* Banner de foto: ocupa 100% da altura do Hero, do lado direito,
-          igual a uma foto de capa. Independente da altura do texto. */}
+      {/* Banner  */}
       <div className={styles.photoBanner} aria-hidden="true">
         {heroFoto ? (
           <img src={heroFoto} alt="" className={styles.photoImg} />
@@ -69,9 +68,9 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <a href={mailtoUrl()} className="btn-gold">
+            <a href="/#contato" className="btn-gold">
               <Calendar className="h-4 w-4" strokeWidth={1.5} />
-              Agendar Atendimento
+              Entre em Contato
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
             </a>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">

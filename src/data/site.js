@@ -28,13 +28,6 @@ export function whatsappUrl(message = WHATSAPP_DEFAULT_MSG) {
   return `https://wa.me/${SITE.phoneRaw}?text=${encodeURIComponent(message)}`;
 }
 
-export function mailtoUrl(
-  subject = "Agendamento de atendimento",
-  body = "Olá, gostaria de agendar um atendimento.",
-) {
-  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
 // EmailJS
 export const EMAILJS = {
   serviceId: "service_xxx",

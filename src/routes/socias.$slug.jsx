@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, MessageCircle } from "lucide-react";
-import { getSocia, SOCIAS, mailtoUrl, whatsappUrl } from "@/data/site";
+import { getSocia, SOCIAS, whatsappUrl } from "@/data/site";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
@@ -162,8 +162,8 @@ function SociaDetalhe() {
                   <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                   Falar com {socia.nome.replace(/^Dra\.\s*/, "Dra. ").split(" ").slice(0, 2).join(" ")}
                 </a>
-                <a href={mailtoUrl()} className="btn-ghost-navy">
-                  Agendar Atendimento
+                <a href="/#contato" className="btn-ghost-navy">
+                  Entre em Contato
                 </a>
               </div>
             </motion.div>
