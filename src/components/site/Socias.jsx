@@ -5,19 +5,36 @@ import { SOCIAS } from "@/data/site";
 import { SectionTitle } from "./SectionTitle";
 import styles from "./Socias.module.css";
 
-function AvatarPlaceholder({ nome }) {
-  const initials = nome
+function getInitials(nome) {
+  return nome
     .replace(/^Dra\.\s*/i, "")
     .split(" ")
     .filter(Boolean)
     .slice(0, 2)
     .map((n) => n[0])
     .join("");
+}
+
+function Avatar({ foto, nome }) {
+  if (foto) {
+    return (
+      <div className={styles.avatarWrap}>
+        <img
+          src={foto}
+          alt={nome}
+          className={styles.avatarPhoto}
+          loading="lazy"
+        />
+        <div className={styles.avatarFade} />
+      </div>
+    );
+  }
+
   return (
     <div className={styles.avatarWrap}>
       <div className={styles.avatarPattern} />
       <div className={styles.avatarInitialsWrap}>
-        <span className={styles.avatarInitials}>{initials}</span>
+        <span className={styles.avatarInitials}>{getInitials(nome)}</span>
       </div>
       <div className={styles.avatarFade} />
     </div>
@@ -54,7 +71,7 @@ export function Socias() {
                 params={{ slug: s.slug }}
                 className={styles.card}
               >
-                <AvatarPlaceholder nome={s.nome} />
+                <Avatar foto={s.foto} nome={s.nome} />
                 <div className={styles.content}>
                   <span className={styles.oab}>{s.oab}</span>
                   <h3 className={styles.name}>{s.nome}</h3>

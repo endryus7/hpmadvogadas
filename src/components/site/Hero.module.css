@@ -62,7 +62,12 @@
 
 .inner {
   position: relative;
-  padding: 8rem 0;
+  padding-block: 5rem;
+}
+@media (min-width: 640px) {
+  .inner {
+    padding-block: 8rem;
+  }
 }
 
 .content {

@@ -1,5 +1,7 @@
 import { Landmark, Gavel, Users, ShoppingBag, ShieldCheck, Briefcase, Car } from "lucide-react";
 
+import mylennaFoto from "../assets/images/mylenna-montezano-vargas.png";
+
 export const SITE = {
   name: "Hermann, Piccoli & Montezano Advogadas Associadas",
   shortName: "HPM Advogadas",
@@ -88,6 +90,7 @@ export const SOCIAS = [
     nome: "Dra. Shayane Hermann Pacheco",
     oab: "OAB/RS 129.194",
     papel: "Direito do Consumidor e Bancário",
+    // foto: shayaneFoto
     resumo:
       "Especialista em Direito do Consumidor e Bancário, com atuação em revisional de contratos e superendividamento.",
     bio: "Especialista em Direito do Consumidor. Atua em Direito Bancário com ações de fraude, gestão de passivos empresariais, revisional de contrato e superendividamento. Pós-graduanda em Direito do Trabalho, com foco em Gestão Trabalhista para Empresas.",
@@ -106,6 +109,7 @@ export const SOCIAS = [
     nome: "Dra. Mariana Piccoli",
     oab: "OAB/RS 129.157",
     papel: "Direito Previdenciário",
+    // foto: marianaFoto
     resumo:
       "Advogada previdenciarista com atuação no INSS e no RPPS, incluindo demandas do IPE Prev.",
     bio: "Advogada previdenciarista, especialista em Direito Previdenciário, com atuação em benefícios do INSS e no RPPS (Regime Próprio de Previdência), incluindo demandas relacionadas ao IPE Prev. Atua em concessão de aposentadorias, benefícios por incapacidade, pensão por morte, BPC/LOAS, salário maternidade, auxílio reclusão e revisões de benefícios. Pós-graduanda em Direito do Consumidor.",
@@ -127,6 +131,7 @@ export const SOCIAS = [
     nome: "Dra. Mylenna Montezano Vargas",
     oab: "OAB/RS 131.018",
     papel: "Direito de Família e Violência Doméstica",
+    foto: mylennaFoto,
     resumo:
       "Advogada familiarista com atuação em alimentos, guarda, divórcio, inventário e medidas de violência doméstica.",
     bio: "Advogada familiarista, com atuação em demandas de alimentos, guarda e convivência, alienação parental, divórcio, união estável, dissolução de união estável, inventário judicial e extrajudicial e curatela. Atua em conjunto com a advocacia criminal em medidas e defesas relacionadas à violência doméstica.",

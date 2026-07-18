@@ -1,6 +1,7 @@
 import { Instagram } from "lucide-react";
 import { AREAS, NAV, SITE } from "@/data/site";
 import { Monogram } from "./Monogram";
+import logo from "../../assets/images/logo.png";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -12,9 +13,9 @@ export function Footer() {
       </div>
 
       <div className={`container-x ${styles.grid}`}>
-        <div>
+        <div className={styles.gridCol}>
           <div className={styles.logoRow}>
-            <Monogram className="h-12 w-20" strokeWidth={1.25} />
+            <img src={logo} alt="Monograma HPM" className={styles.logoImg} />
           </div>
           <p className={styles.brandName}>Hermann, Piccoli & Montezano</p>
           <p className={styles.brandSubtitle}>Advogadas Associadas</p>
@@ -24,7 +25,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div>
+        <div className={styles.gridCol}>
           <h4 className={styles.heading}>Navegação</h4>
           <ul className={styles.list}>
             {NAV.map((n) => (
@@ -37,7 +38,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className={styles.gridCol}>
           <h4 className={styles.heading}>Áreas</h4>
           <ul className={`${styles.list} ${styles.muted}`}>
             {AREAS.map((a) => (
@@ -46,7 +47,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className={styles.gridCol}>
           <h4 className={styles.heading}>Contato</h4>
           <ul className={`${styles.list} ${styles.muted}`}>
             <li>
@@ -83,10 +84,6 @@ export function Footer() {
       <div className={styles.bottomBar}>
         <div className={`container-x ${styles.bottomInner}`}>
           <span>© {year} Hermann, Piccoli & Montezano Advogadas Associadas.</span>
-          <span>
-            Conteúdo meramente informativo, em conformidade com o Código de Ética
-            da OAB.
-          </span>
         </div>
       </div>
     </footer>

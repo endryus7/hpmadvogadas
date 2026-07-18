@@ -49,7 +49,7 @@ export const Route = createFileRoute("/socias/$slug")({
   ),
 });
 
-function BigAvatar({ nome }) {
+function BigAvatar({ foto, nome }) {
   const initials = nome
     .replace(/^Dra\.\s*/i, "")
     .split(" ")
@@ -57,6 +57,21 @@ function BigAvatar({ nome }) {
     .slice(0, 2)
     .map((n) => n[0])
     .join("");
+
+  if (foto) {
+    return (
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-navy">
+        <img
+          src={foto}
+          alt={nome}
+          className="h-full w-full object-cover object-top"
+          loading="lazy"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy to-transparent" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-navy">
       <div
@@ -102,7 +117,7 @@ function SociaDetalhe() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <BigAvatar nome={socia.nome} />
+              <BigAvatar foto={socia.foto} nome={socia.nome} />
             </motion.div>
 
             <motion.div
@@ -157,32 +172,42 @@ function SociaDetalhe() {
           <section className="border-t border-border py-20">
             <span className="eyebrow">Outras sócias</span>
             <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              {outras.map((o) => (
-                <Link
-                  key={o.slug}
-                  to="/socias/$slug"
-                  params={{ slug: o.slug }}
-                  className="group flex items-start gap-5 rounded-sm border border-border p-6 transition-all hover:border-gold hover:shadow-md"
-                >
-                  <div className="grid h-16 w-16 shrink-0 place-items-center rounded-sm bg-navy font-serif italic text-2xl text-gold">
-                    {o.nome
-                      .replace(/^Dra\.\s*/i, "")
-                      .split(" ")
-                      .slice(0, 2)
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <div>
-                    <p className="text-[0.65rem] uppercase tracking-[0.25em] text-gold">
-                      {o.oab}
-                    </p>
-                    <h3 className="mt-1 font-serif text-lg text-navy group-hover:text-gold">
-                      {o.nome}
-                    </h3>
-                    <p className="mt-2 text-sm text-ink/70">{o.resumo}</p>
-                  </div>
-                </Link>
-              ))}
+              {outras.map((o) => {
+                return (
+                  <Link
+                    key={o.slug}
+                    to="/socias/$slug"
+                    params={{ slug: o.slug }}
+                    className="group flex items-start gap-5 rounded-sm border border-border p-6 transition-all hover:border-gold hover:shadow-md"
+                  >
+                    {o.foto ? (
+                      <img
+                        src={o.foto}
+                        alt={o.nome}
+                        className="h-16 w-16 shrink-0 rounded-sm object-cover object-top"
+                      />
+                    ) : (
+                      <div className="grid h-16 w-16 shrink-0 place-items-center rounded-sm bg-navy font-serif italic text-2xl text-gold">
+                        {o.nome
+                          .replace(/^Dra\.\s*/i, "")
+                          .split(" ")
+                          .slice(0, 2)
+                          .map((n) => n[0])
+                          .join("")}
+                      </div>
+                    )}
+                    <div>
+                      <p className="text-[0.65rem] uppercase tracking-[0.25em] text-gold">
+                        {o.oab}
+                      </p>
+                      <h3 className="mt-1 font-serif text-lg text-navy group-hover:text-gold">
+                        {o.nome}
+                      </h3>
+                      <p className="mt-2 text-sm text-ink/70">{o.resumo}</p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </section>
         </div>

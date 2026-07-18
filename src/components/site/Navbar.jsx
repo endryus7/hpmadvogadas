@@ -18,7 +18,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
+    <header
+      className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}
+    >
       <div className={`container-x ${styles.bar}`}>
         <Link to="/" className={styles.logoLink}>
           <img src={logo} alt="Monograma HPM" className={styles.logoImg} />
