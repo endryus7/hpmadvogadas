@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NAV, SITE } from "@/data/site";
+import { NAV, SITE, scrollToSection } from "@/data/site";
 import logo from "../../assets/images/logo.png";
 import styles from "./Navbar.module.css";
 
@@ -32,7 +32,13 @@ export function Navbar() {
 
         <nav className={styles.nav}>
           {NAV.map((item) => (
-            <Link key={item.hash} to={item.to} hash={item.hash} className={styles.navLink}>
+            <Link
+              key={item.hash}
+              to={item.to}
+              hash={item.hash}
+              onClick={scrollToSection(item.hash)}
+              className={styles.navLink}
+            >
               {item.label}
             </Link>
           ))}
@@ -48,7 +54,7 @@ export function Navbar() {
           >
             <Instagram className="h-5 w-5" strokeWidth={1.5} />
           </a>
-          <Link to="/" hash="contato" className="btn-gold">
+          <Link to="/" hash="contato" onClick={scrollToSection("contato")} className="btn-gold">
             Entre em Contato
           </Link>
         </div>
@@ -77,7 +83,10 @@ export function Navbar() {
                   key={item.hash}
                   to={item.to}
                   hash={item.hash}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    scrollToSection(item.hash)(e);
+                    setOpen(false);
+                  }}
                   className={styles.mobileLink}
                 >
                   {item.label}
@@ -86,7 +95,10 @@ export function Navbar() {
               <Link
                 to="/"
                 hash="contato"
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  scrollToSection("contato")(e);
+                  setOpen(false);
+                }}
                 className={`btn-gold ${styles.mobileSchedule}`}
               >
                 Entre em Contato

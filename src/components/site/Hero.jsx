@@ -8,7 +8,7 @@ import {
   Lock,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { whatsappUrl } from "@/data/site";
+import { whatsappUrl, scrollToSection } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
 import heroFoto from "../../assets/images/hero-foto.webp";
@@ -63,7 +63,7 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <Link to="/" hash="contato" className="btn-gold">
+            <Link to="/" hash="contato" onClick={scrollToSection("contato")} className="btn-gold">
               Entre em Contato
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
             </Link>

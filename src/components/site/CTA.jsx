@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { whatsappUrl } from "@/data/site";
+import { whatsappUrl, scrollToSection } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./CTA.module.css";
 
@@ -26,7 +26,7 @@ export function CTA() {
             passo.
           </h2>
           <div className={styles.buttons}>
-            <Link to="/" hash="contato" className="btn-gold">
+            <Link to="/" hash="contato" onClick={scrollToSection("contato")} className="btn-gold">
               Entre em Contato
             </Link>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">

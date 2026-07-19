@@ -1,6 +1,6 @@
 import { Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { AREAS, NAV, SITE } from "@/data/site";
+import { AREAS, NAV, SITE, scrollToSection } from "@/data/site";
 import { Monogram } from "./Monogram";
 import logo from "../../assets/images/logo.png";
 import styles from "./Footer.module.css";
@@ -31,7 +31,7 @@ export function Footer() {
           <ul className={styles.list}>
             {NAV.map((n) => (
               <li key={n.hash}>
-                <Link to={n.to} hash={n.hash} className={styles.link}>
+                <Link to={n.to} hash={n.hash} onClick={scrollToSection(n.hash)} className={styles.link}>
                   {n.label}
                 </Link>
               </li>

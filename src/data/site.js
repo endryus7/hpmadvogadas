@@ -29,6 +29,14 @@ export function whatsappUrl(message = WHATSAPP_DEFAULT_MSG, phone = SITE.phoneRa
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
+export function scrollToSection(hash) {
+  return (e) => {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      e.preventDefault();
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `/#${hash}`);
+    }
+  };
 // EmailJS
 export const EMAILJS = {
   serviceId: "service_q8sjo5o",
