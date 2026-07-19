@@ -2,6 +2,7 @@ import { Instagram } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { AREAS, NAV, SITE, scrollToSection } from "@/data/site";
 import { Monogram } from "./Monogram";
+import { whatsappUrl } from "@/data/site";
 import logo from "../../assets/images/logo.png";
 import styles from "./Footer.module.css";
 
@@ -57,7 +58,7 @@ export function Footer() {
               {SITE.address.district}, {SITE.address.city}
             </li>
             <li>
-              <a href={`tel:+${SITE.phoneRaw}`} className={styles.link}>
+              <a href={whatsappUrl()} target="_blank" rel="noreferrer" className={styles.link}>
                 {SITE.phone}
               </a>
             </li>
