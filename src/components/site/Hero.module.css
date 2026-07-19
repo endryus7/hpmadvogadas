@@ -210,6 +210,27 @@
   }
 }
 
+@media (max-width: 768px) {
+  .photoImg {
+    object-position: 84% center;
+    filter: brightness(.7);
+  }
+
+  .photoFade {
+    background: linear-gradient(
+      90deg,
+      rgba(8,27,58,.98) 0%,
+      rgba(8,27,58,.96) 55%,
+      rgba(8,27,58,.70) 80%,
+      rgba(8,27,58,.20) 100%
+    );
+  }
+
+  .content {
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 1024px) {
   .title {
     font-size: 3.25rem;
