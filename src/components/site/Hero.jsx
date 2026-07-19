@@ -29,15 +29,10 @@ export function Hero() {
         <div className={styles.bottomFade} />
       </div>
 
-      {/* Banner  */}
+      {/* Background do Hero */}
       <div className={styles.photoBanner} aria-hidden="true">
-        {heroFoto ? (
-          <img src={heroFoto} alt="" className={styles.photoImg} />
-        ) : (
-          <div className={styles.photoFallback}>
-            <Monogram className="h-[420px] w-[640px]" strokeWidth={0.7} />
-          </div>
-        )}
+        <img src={heroFoto} alt="" className={styles.photoImg} />
+        <div className={styles.photoOverlay} />
         <div className={styles.photoFade} />
       </div>
 

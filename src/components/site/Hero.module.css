@@ -38,16 +38,50 @@
 }
 
 .photoBanner {
-  display: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -5;
 }
 
 .photoImg {
   position: absolute;
   inset: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center right;
+  transform: scale(1.03);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at right center,
+      rgba(0,0,0,.05),
+      rgba(0,0,0,.25),
+      rgba(0,0,0,.45)
+    );
+}
+
+.photoFade {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,27,58,0.98) 0%,
+      rgba(8,27,58,0.96) 18%,
+      rgba(8,27,58,0.92) 32%,
+      rgba(8,27,58,0.78) 45%,
+      rgba(8,27,58,0.45) 60%,
+      rgba(8,27,58,0.15) 72%,
+      transparent 85%
+    );
 }
 
 .photoFallback {
@@ -58,19 +92,6 @@
   justify-content: center;
   background: linear-gradient(to bottom right, var(--navy-2), var(--navy));
   color: rgba(200, 166, 106, 0.3);
-}
-
-.photoFade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--navy) 0%,
-    rgba(17, 27, 58, 0.7) 10%,
-    rgba(17, 27, 58, 0.35) 22%,
-    rgba(17, 27, 58, 0.08) 38%,
-    transparent 55%
-  );
 }
 
 .layout {
@@ -161,19 +182,7 @@
   color: var(--gold);
 }
 
-@media (min-width: 1280px) {
-  .photoBanner {
-    display: block;
-    position: absolute;
-    inset-block: 0;
-    right: 0;
-    width: 50%;
-    overflow: hidden;
-    z-index: -5;
-  }
-}
-
-@media (min-width: 390px) {
+@media (max-width: 400px) {
   .title {
     font-size: 2.75rem;
   }
@@ -182,6 +191,16 @@
     padding-block: 9rem 4rem;
   }
 
+  .badges {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
   .badges {
     margin-top: 2.5rem;
     display: flex;
