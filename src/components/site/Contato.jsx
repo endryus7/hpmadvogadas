@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock, ExternalLink, Loader2 } from "lucide-react";
 import { AREAS, EMAILJS, SITE } from "@/data/site";
 import { SectionTitle } from "./SectionTitle";
+import { whatsappUrl } from "@/data/site";
 import styles from "./Contato.module.css";
 
 const phoneMask = (v) =>
@@ -160,7 +161,7 @@ export function Contato() {
               CEP {SITE.address.zip}
             </InfoRow>
             <InfoRow icon={Phone} title="Telefone / WhatsApp">
-              <a href={`tel:+${SITE.phoneRaw}`} className={styles.infoLink}>
+              <a href={whatsappUrl()} target="_blank" rel="noreferrer" className={styles.infoLink}>
                 {SITE.phone}
               </a>
             </InfoRow>
