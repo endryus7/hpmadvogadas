@@ -78,14 +78,33 @@
 }
 
 .navLink {
+  position: relative;
+  display: inline-block;
   font-size: 0.875rem;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
   color: rgba(255, 255, 255, 0.85);
-  transition: color 0.2s ease;
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
+
+/* Linha dourada */
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.35s ease;
+}
+
 .navLink:hover {
   color: var(--gold);
-  border-bottom: 1px solid var(--gold);
+}
+
+.navLink:hover::after {
+  width: 100%;
 }
 
 .rightGroup {
