@@ -59,7 +59,7 @@ export function Hero() {
 
           <p className={styles.description}>
             Atuamos com atendimento humanizado, estratégia jurídica personalizada
-            e discrição em cada etapa — para clientes em Porto Alegre e em todo o Brasil, presencialmente ou on-line.
+            e discrição em cada etapa para clientes em Porto Alegre e em todo o Brasil, presencialmente ou on-line.
           </p>
 
           <div className={styles.buttons}>

@@ -163,7 +163,7 @@ export function getSocia(slug) {
 export const FAQ = [
   {
     q: "Como funciona o primeiro contato?",
-    a: "O atendimento inicial pode ser feito por WhatsApp, telefone ou pelo formulário de contato do site. A partir daí, é feita uma análise preliminar do caso e agendada uma conversa — presencial em Porto Alegre ou por vídeo — para entender a situação em detalhes.",
+    a: "O atendimento inicial pode ser feito por WhatsApp, telefone ou pelo formulário de contato do site. A partir daí, é feita uma análise preliminar do caso e agendada uma conversa presencial em Porto Alegre ou por vídeo para entender a situação em detalhes.",
   },
   {
     q: "O atendimento é apenas em Porto Alegre?",
@@ -171,11 +171,11 @@ export const FAQ = [
   },
   {
     q: "Como funcionam os honorários e a consulta inicial?",
-    a: "Os honorários seguem o Código de Ética e a Tabela da OAB/RS e são combinados de forma transparente após a análise do caso. [Placeholder — confirmar política de consulta inicial do escritório antes de publicar.]",
+    a: "Os honorários seguem o Código de Ética e a Tabela da OAB/RS e são combinados de forma transparente após a análise do caso. [Placeholder confirmar política de consulta inicial do escritório antes de publicar.]",
   },
   {
     q: "Quais documentos devo levar na primeira reunião?",
-    a: "Os documentos variam conforme a área e a natureza do caso. Após o primeiro contato, orientamos exatamente quais documentos são úteis para a análise. [Placeholder — se o escritório quiser uma lista base por área, incluir aqui.]",
+    a: "Os documentos variam conforme a área e a natureza do caso. Após o primeiro contato, orientamos exatamente quais documentos são úteis para a análise. [Placeholder se o escritório quiser uma lista base por área, incluir aqui.]",
   },
   {
     q: "Em quais áreas o escritório atua?",

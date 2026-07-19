@@ -41,11 +41,7 @@ export function Sobre() {
           }
           description={
             <>
-              O Hermann, Piccoli & Montezano é fundado por três advogadas
-              associadas, com atuação centrada no cliente. Mais do que prestar
-              serviços jurídicos, buscamos construir vínculos de confiança —
-              oferecendo escuta cuidadosa, análise técnica e acompanhamento
-              próximo em cada etapa do caso.
+              O Hermann, Piccoli & Montezano é fundado por três advogadas associadas, com atuação centrada no cliente. Mais do que prestar serviços jurídicos, buscamos construir vínculos de confiançaoferecendo escuta cuidadosa, análise técnica e acompanhamento próximo em cada etapa do caso.
             </>
           }
         />
