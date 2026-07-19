@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
-  Calendar,
   MessageCircle,
   ShieldCheck,
   Scale,
@@ -64,7 +63,6 @@ export function Hero() {
 
           <div className={styles.buttons}>
             <a href="/#contato" className="btn-gold">
-              <Calendar className="h-4 w-4" strokeWidth={1.5} />
               Entre em Contato
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
             </a>
