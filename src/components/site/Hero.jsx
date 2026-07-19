@@ -11,7 +11,7 @@ import { Link } from "@tanstack/react-router";
 import { whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
-import heroFoto from "../../assets/images/hero-foto.png";
+import heroFoto from "../../assets/images/hero-foto.webp";
 
 const TRUST_BADGES = [
   { icon: ShieldCheck, label: "Atendimento Personalizado" },

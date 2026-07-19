@@ -94,7 +94,7 @@ function BigAvatar({ foto, nome }) {
 function SociaDetalhe() {
   const { socia } = Route.useLoaderData();
   const outras = SOCIAS.filter((s) => s.slug !== socia.slug);
-  const whatsMsg = `Olá! Gostaria de falar com a ${socia.nome} sobre um atendimento.`;
+  const whatsMsg = `Olá! ${socia.primeiroNome} gostaria de falar sobre um atendimento.`;
 
   return (
     <>
@@ -138,7 +138,12 @@ function SociaDetalhe() {
               </div>
 
               <div className={styles.actions}>
-                <a href={whatsappUrl(whatsMsg)} target="_blank" rel="noreferrer" className="btn-gold">
+                <a
+                  href={whatsappUrl(whatsMsg, socia.whatsapp)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-gold"
+                >
                   <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                   Falar com {socia.nome.replace(/^Dra\.\s*/, "Dra. ").split(" ").slice(0, 2).join(" ")}
                 </a>
