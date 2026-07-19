@@ -6,6 +6,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Monogram } from "@/components/site/Monogram";
+import styles from "./SociaDetalhe.module.css";
 
 export const Route = createFileRoute("/socias/$slug")({
   loader: ({ params }) => {
@@ -38,11 +39,13 @@ export const Route = createFileRoute("/socias/$slug")({
   },
   component: SociaDetalhe,
   notFoundComponent: () => (
-    <div className="min-h-screen">
+    <div className={styles.notFoundWrap}>
       <Navbar />
-      <div className="container-x pt-40 pb-24 text-center">
-        <h1 className="font-serif text-3xl text-navy">Sócia não encontrada</h1>
-        <Link to="/" className="btn-gold mt-8 inline-flex">Voltar ao início</Link>
+      <div className={`container-x ${styles.notFoundInner}`}>
+        <h1 className={styles.notFoundTitle}>Sócia não encontrada</h1>
+        <Link to="/" className={`btn-gold ${styles.notFoundBtn}`}>
+          Voltar ao início
+        </Link>
       </div>
       <Footer />
     </div>
@@ -60,35 +63,30 @@ function BigAvatar({ foto, nome }) {
 
   if (foto) {
     return (
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-navy">
-        <img
-          src={foto}
-          alt={nome}
-          className="h-full w-full object-cover object-top"
-          loading="lazy"
-        />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy to-transparent" />
+      <div className={styles.avatarWrap}>
+        <img src={foto} alt={nome} className={styles.avatarPhoto} loading="lazy" />
+        <div className={styles.avatarFade} />
       </div>
     );
   }
 
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-navy">
+    <div className={styles.avatarWrap}>
       <div
-        className="absolute inset-0 opacity-[0.08]"
+        className={styles.avatarPattern}
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(200,166,106,.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(200,166,106,.35) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="absolute -right-6 -top-6 text-gold/10">
+      <div className={styles.avatarMonogramWrap}>
         <Monogram className="h-56 w-80" strokeWidth={0.8} />
       </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="font-serif italic text-8xl text-gold/80">{initials}</span>
+      <div className={styles.avatarInitialsWrap}>
+        <span className={styles.avatarInitials}>{initials}</span>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy to-transparent" />
+      <div className={styles.avatarFade} />
     </div>
   );
 }
@@ -101,17 +99,13 @@ function SociaDetalhe() {
   return (
     <>
       <Navbar />
-      <main className="bg-white pt-32">
+      <main className={styles.main}>
         <div className="container-x">
-          <Link
-            to="/"
-            hash="socias"
-            className="inline-flex items-center gap-2 text-sm text-navy/70 hover:text-gold"
-          >
+          <Link to="/" hash="socias" className={styles.backLink}>
             <ArrowLeft className="h-4 w-4" strokeWidth={1.5} /> Voltar para as sócias
           </Link>
 
-          <div className="mt-10 grid gap-12 pb-24 lg:grid-cols-[minmax(0,420px)_1fr] lg:gap-16">
+          <div className={styles.profileGrid}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,88 +120,64 @@ function SociaDetalhe() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <span className="eyebrow">{socia.oab}</span>
-              <h1 className="mt-4 font-serif text-4xl leading-tight text-navy sm:text-5xl">
-                {socia.nome}
-              </h1>
-              <p className="mt-3 text-sm uppercase tracking-[0.22em] text-gold">
-                {socia.papel}
-              </p>
-              <span className="hairline mt-8" />
+              <h1 className={styles.name}>{socia.nome}</h1>
+              <p className={styles.role}>{socia.papel}</p>
+              <span className={`hairline ${styles.hairlineSpacing}`} />
 
-              <p className="mt-8 text-base leading-relaxed text-ink/85">{socia.bio}</p>
+              <p className={styles.bio}>{socia.bio}</p>
 
-              <div className="mt-10">
-                <h2 className="text-[0.7rem] font-medium uppercase tracking-[0.28em] text-navy/70">
-                  Áreas de atuação
-                </h2>
-                <div className="mt-4 flex flex-wrap gap-2">
+              <div className={styles.areasBlock}>
+                <h2 className={styles.areasTitle}>Áreas de atuação</h2>
+                <div className={styles.tagsList}>
                   {socia.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-navy/15 bg-paper px-3.5 py-1.5 text-xs text-navy"
-                    >
+                    <span key={t} className={styles.tag}>
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
-                <a
-                  href={whatsappUrl(whatsMsg)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-gold"
-                >
+              <div className={styles.actions}>
+                <a href={whatsappUrl(whatsMsg)} target="_blank" rel="noreferrer" className="btn-gold">
                   <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                   Falar com {socia.nome.replace(/^Dra\.\s*/, "Dra. ").split(" ").slice(0, 2).join(" ")}
                 </a>
-                <a href="/#contato" className="btn-ghost-navy">
+                <Link to="/" hash="contato" className="btn-ghost-navy">
                   Entre em Contato
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
 
-          <section className="border-t border-border py-20">
+          <section className={styles.othersSection}>
             <span className="eyebrow">Outras sócias</span>
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              {outras.map((o) => {
-                return (
-                  <Link
-                    key={o.slug}
-                    to="/socias/$slug"
-                    params={{ slug: o.slug }}
-                    className="group flex items-start gap-5 rounded-sm border border-border p-6 transition-all hover:border-gold hover:shadow-md"
-                  >
-                    {o.foto ? (
-                      <img
-                        src={o.foto}
-                        alt={o.nome}
-                        className="h-16 w-16 shrink-0 rounded-sm object-cover object-top"
-                      />
-                    ) : (
-                      <div className="grid h-16 w-16 shrink-0 place-items-center rounded-sm bg-navy font-serif italic text-2xl text-gold">
-                        {o.nome
-                          .replace(/^Dra\.\s*/i, "")
-                          .split(" ")
-                          .slice(0, 2)
-                          .map((n) => n[0])
-                          .join("")}
-                      </div>
-                    )}
-                    <div>
-                      <p className="text-[0.65rem] uppercase tracking-[0.25em] text-gold">
-                        {o.oab}
-                      </p>
-                      <h3 className="mt-1 font-serif text-lg text-navy group-hover:text-gold">
-                        {o.nome}
-                      </h3>
-                      <p className="mt-2 text-sm text-ink/70">{o.resumo}</p>
+            <div className={styles.othersGrid}>
+              {outras.map((o) => (
+                <Link
+                  key={o.slug}
+                  to="/socias/$slug"
+                  params={{ slug: o.slug }}
+                  className={styles.otherCard}
+                >
+                  {o.foto ? (
+                    <img src={o.foto} alt={o.nome} className={styles.otherAvatar} />
+                  ) : (
+                    <div className={styles.otherAvatarFallback}>
+                      {o.nome
+                        .replace(/^Dra\.\s*/i, "")
+                        .split(" ")
+                        .slice(0, 2)
+                        .map((n) => n[0])
+                        .join("")}
                     </div>
-                  </Link>
-                );
-              })}
+                  )}
+                  <div>
+                    <p className={styles.otherOab}>{o.oab}</p>
+                    <h3 className={styles.otherName}>{o.nome}</h3>
+                    <p className={styles.otherResumo}>{o.resumo}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </section>
         </div>

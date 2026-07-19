@@ -32,9 +32,9 @@ export function Navbar() {
 
         <nav className={styles.nav}>
           {NAV.map((item) => (
-            <a key={item.href} href={item.href} className={styles.navLink}>
+            <Link key={item.hash} to={item.to} hash={item.hash} className={styles.navLink}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -48,9 +48,9 @@ export function Navbar() {
           >
             <Instagram className="h-5 w-5" strokeWidth={1.5} />
           </a>
-          <a href="/#contato" className="btn-gold">
+          <Link to="/" hash="contato" className="btn-gold">
             Entre em Contato
-          </a>
+          </Link>
         </div>
 
         <button
@@ -73,22 +73,24 @@ export function Navbar() {
           >
             <div className={`container-x ${styles.mobileInner}`}>
               {NAV.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
+                <Link
+                  key={item.hash}
+                  to={item.to}
+                  hash={item.hash}
                   onClick={() => setOpen(false)}
                   className={styles.mobileLink}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="/#contato"
+              <Link
+                to="/"
+                hash="contato"
                 onClick={() => setOpen(false)}
                 className={`btn-gold ${styles.mobileSchedule}`}
               >
                 Entre em Contato
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

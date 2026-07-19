@@ -182,34 +182,6 @@
   color: var(--gold);
 }
 
-@media (max-width: 400px) {
-  .title {
-    font-size: 2.75rem;
-  }
-
-  .layout {
-    padding-block: 9rem 4rem;
-  }
-
-  .badges {
-    margin-top: 2.5rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .badges {
-    margin-top: 2.5rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-}
-
 @media (max-width: 768px) {
   .photoImg {
     object-position: 84% center;
@@ -228,6 +200,19 @@
 
   .content {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .badges {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .badgeLabel {
+    max-width: none;
   }
 }
 

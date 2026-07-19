@@ -7,6 +7,7 @@ import {
   Scale,
   Lock,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { whatsappUrl } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
@@ -21,7 +22,7 @@ const TRUST_BADGES = [
 export function Hero() {
   return (
     <section id="inicio" className={styles.section}>
-      {/* Camada de fundo, gradiente escuro cobre o Hero todo */}
+      {/* gradiente escuro que cobre o Hero inteiro */}
       <div className={styles.bgWrap}>
         <div className={styles.gradient} />
         <div className={styles.gridPattern} />
@@ -62,10 +63,10 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <a href="/#contato" className="btn-gold">
+            <Link to="/" hash="contato" className="btn-gold">
               Entre em Contato
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-            </a>
+            </Link>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">
               <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
               Fale no WhatsApp
@@ -84,7 +85,7 @@ export function Hero() {
       </div>
 
       <motion.a
-        href="#sobre"
+        href="/#sobre"
         aria-label="Rolar para a próxima seção"
         className={styles.scrollLink}
         animate={{ y: [0, 8, 0] }}

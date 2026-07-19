@@ -30,9 +30,9 @@ export function whatsappUrl(message = WHATSAPP_DEFAULT_MSG) {
 
 // EmailJS
 export const EMAILJS = {
-  serviceId: "service_xxx",
-  templateId: "template_xxx",
-  publicKey: "public_key_xxx",
+  serviceId: "service_q8sjo5o",
+  templateId: "template_gzy88yp",
+  publicKey: "jdoV8f0wKGGy3lEvR",
 };
 
 export const AREAS = [
@@ -174,9 +174,9 @@ export const FAQ = [
 ];
 
 export const NAV = [
-  { label: "Início", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
-  { label: "Sócias", href: "#socias" },
-  { label: "Áreas de Atuação", href: "#areas" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", to: "/", hash: "inicio" },
+  { label: "Sobre", to: "/", hash: "sobre" },
+  { label: "Sócias", to: "/", hash: "socias" },
+  { label: "Áreas de Atuação", to: "/", hash: "areas" },
+  { label: "Contato", to: "/", hash: "contato" },
 ];
