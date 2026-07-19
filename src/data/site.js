@@ -37,6 +37,8 @@ export function scrollToSection(hash) {
       window.history.replaceState(null, "", `/#${hash}`);
     }
   };
+}
+
 // EmailJS
 export const EMAILJS = {
   serviceId: "service_q8sjo5o",
