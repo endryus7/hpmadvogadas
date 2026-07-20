@@ -1,6 +1,8 @@
 import { Landmark, Gavel, Users, ShoppingBag, ShieldCheck, Briefcase, Car } from "lucide-react";
 
 import mylennaFoto from "../assets/images/mylenna-montezano-vargas.webp";
+import shayaneFoto from "../assets/images/shayane-hermann-pacheco.webp";
+import marianaFoto from "../assets/images/mariana-piccoli.webp";
 
 export const SITE = {
   name: "Hermann, Piccoli & Montezano Advogadas Associadas",
@@ -99,7 +101,7 @@ export const SOCIAS = [
     primeiroNome: "Dra. Shayane",
     oab: "OAB/RS 129.194",
     papel: "Direito do Consumidor e Bancário",
-    // foto: shayaneFoto
+    foto: shayaneFoto,
     // whatsapp: "5551900000000",
     // número pessoal da Dra. Shayane
     resumo:
@@ -121,7 +123,7 @@ export const SOCIAS = [
     primeiroNome: "Dra. Mariana",
     oab: "OAB/RS 129.157",
     papel: "Direito Previdenciário",
-    // foto: marianaFoto
+    foto: marianaFoto,
     // whatsapp: "5551900000000",
     // número pessoal da Dra. Mariana
     resumo:
