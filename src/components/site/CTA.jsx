@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
-import { whatsappUrl, scrollToSection } from "@/data/site";
+import { whatsappUrl, useSectionLink } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./CTA.module.css";
 
 export function CTA() {
+  const goTo = useSectionLink();
+
   return (
     <section className={styles.section}>
       <div className={styles.monogramWrap}>
@@ -26,9 +27,9 @@ export function CTA() {
             passo.
           </h2>
           <div className={styles.buttons}>
-            <Link to="/" hash="contato" onClick={scrollToSection("contato")} className="btn-gold">
+            <a href="/#contato" onClick={goTo("contato")} className="btn-gold">
               Entre em Contato
-            </Link>
+            </a>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">
               Fale no WhatsApp
             </a>

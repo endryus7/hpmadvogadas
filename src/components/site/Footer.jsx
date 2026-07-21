@@ -1,6 +1,5 @@
 import { Instagram } from "lucide-react";
-import { Link } from "@tanstack/react-router";
-import { AREAS, NAV, SITE, scrollToSection } from "@/data/site";
+import { AREAS, NAV, SITE, useSectionLink } from "@/data/site";
 import { Monogram } from "./Monogram";
 import { whatsappUrl } from "@/data/site";
 import logo from "../../assets/images/logo.png";
@@ -8,6 +7,8 @@ import styles from "./Footer.module.css";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const goTo = useSectionLink();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.monogramWrap}>
@@ -32,9 +33,9 @@ export function Footer() {
           <ul className={styles.list}>
             {NAV.map((n) => (
               <li key={n.hash}>
-                <Link to={n.to} hash={n.hash} onClick={scrollToSection(n.hash)} className={styles.link}>
+                <a href={`/#${n.hash}`} onClick={goTo(n.hash)} className={styles.link}>
                   {n.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
