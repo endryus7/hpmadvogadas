@@ -1,4 +1,5 @@
 import { Landmark, Gavel, Users, ShoppingBag, ShieldCheck, Briefcase, Car } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 
 import mylennaFoto from "../assets/images/mylenna-montezano-vargas.webp";
 import shayaneFoto from "../assets/images/shayane-hermann-pacheco.webp";
@@ -31,12 +32,17 @@ export function whatsappUrl(message = WHATSAPP_DEFAULT_MSG, phone = SITE.phoneRa
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
-export function scrollToSection(hash) {
-  return (e) => {
+// // TanStack Router pra navegar entre páginas
+export function useSectionLink() {
+  const navigate = useNavigate();
+  return (hash) => (e) => {
+    e.preventDefault();
     if (typeof window !== "undefined" && window.location.pathname === "/") {
-      e.preventDefault();
+      // rola manualmente, sempre, não importa se a URL já tem esse hash ou não.
       document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
       window.history.replaceState(null, "", `/#${hash}`);
+    } else {
+      navigate({ to: "/", hash });
     }
   };
 }

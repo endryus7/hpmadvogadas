@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NAV, SITE, scrollToSection } from "@/data/site";
+import { NAV, SITE, useSectionLink } from "@/data/site";
 import logo from "../../assets/images/logo.png";
 import styles from "./Navbar.module.css";
+
+const resetButton = {
+  background: "none",
+  border: "none",
+  font: "inherit",
+  textAlign: "left",
+  width: "100%",
+  cursor: "pointer",
+};
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const goTo = useSectionLink();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,15 +42,14 @@ export function Navbar() {
 
         <nav className={styles.nav}>
           {NAV.map((item) => (
-            <Link
+            <a
               key={item.hash}
-              to={item.to}
-              hash={item.hash}
-              onClick={scrollToSection(item.hash)}
+              href={`/#${item.hash}`}
+              onClick={goTo(item.hash)}
               className={styles.navLink}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -54,9 +63,9 @@ export function Navbar() {
           >
             <Instagram className="h-5 w-5" strokeWidth={1.5} />
           </a>
-          <Link to="/" hash="contato" onClick={scrollToSection("contato")} className="btn-gold">
+          <a href="/#contato" onClick={goTo("contato")} className="btn-gold">
             Entre em Contato
-          </Link>
+          </a>
         </div>
 
         <button
@@ -79,30 +88,30 @@ export function Navbar() {
           >
             <div className={`container-x ${styles.mobileInner}`}>
               {NAV.map((item) => (
-                <Link
+                <button
                   key={item.hash}
-                  to={item.to}
-                  hash={item.hash}
+                  type="button"
                   onClick={(e) => {
-                    scrollToSection(item.hash)(e);
+                    goTo(item.hash)(e);
                     setOpen(false);
                   }}
                   className={styles.mobileLink}
+                  style={resetButton}
                 >
                   {item.label}
-                </Link>
+                </button>
               ))}
-              <Link
-                to="/"
-                hash="contato"
+              <button
+                type="button"
                 onClick={(e) => {
-                  scrollToSection("contato")(e);
+                  goTo("contato")(e);
                   setOpen(false);
                 }}
                 className={`btn-gold ${styles.mobileSchedule}`}
+                style={{ border: "none", cursor: "pointer" }}
               >
                 Entre em Contato
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}

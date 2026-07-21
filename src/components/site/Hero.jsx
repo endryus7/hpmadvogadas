@@ -7,8 +7,7 @@ import {
   Scale,
   Lock,
 } from "lucide-react";
-import { Link } from "@tanstack/react-router";
-import { whatsappUrl, scrollToSection } from "@/data/site";
+import { whatsappUrl, useSectionLink } from "@/data/site";
 import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
 import heroFoto from "../../assets/images/hero-foto.webp";
@@ -20,6 +19,8 @@ const TRUST_BADGES = [
 ];
 
 export function Hero() {
+  const goTo = useSectionLink();
+
   return (
     <section id="inicio" className={styles.section}>
       {/* gradiente escuro que cobre o Hero inteiro */}
@@ -63,10 +64,10 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <Link to="/" hash="contato" onClick={scrollToSection("contato")} className="btn-gold">
+            <a href="/#contato" onClick={goTo("contato")} className="btn-gold">
               Entre em Contato
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-            </Link>
+            </a>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">
               <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
               Fale no WhatsApp
@@ -86,6 +87,7 @@ export function Hero() {
 
       <motion.a
         href="/#sobre"
+        onClick={goTo("sobre")}
         aria-label="Rolar para a próxima seção"
         className={styles.scrollLink}
         animate={{ y: [0, 8, 0] }}

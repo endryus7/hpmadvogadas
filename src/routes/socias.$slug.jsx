@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, MessageCircle } from "lucide-react";
-import { getSocia, SOCIAS, whatsappUrl } from "@/data/site";
+import { getSocia, SOCIAS, whatsappUrl, useSectionLink } from "@/data/site";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
@@ -95,15 +95,16 @@ function SociaDetalhe() {
   const { socia } = Route.useLoaderData();
   const outras = SOCIAS.filter((s) => s.slug !== socia.slug);
   const whatsMsg = `Olá! ${socia.primeiroNome} gostaria de falar sobre um atendimento.`;
+  const goTo = useSectionLink();
 
   return (
     <>
       <Navbar />
       <main className={styles.main}>
         <div className="container-x">
-          <Link to="/" hash="socias" className={styles.backLink}>
+          <a href="/#socias" onClick={goTo("socias")} className={styles.backLink}>
             <ArrowLeft className="h-4 w-4" strokeWidth={1.5} /> Voltar para as sócias
-          </Link>
+          </a>
 
           <div className={styles.profileGrid}>
             <motion.div
@@ -147,9 +148,9 @@ function SociaDetalhe() {
                   <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                   Falar com {socia.nome.replace(/^Dra\.\s*/, "Dra. ").split(" ").slice(0, 2).join(" ")}
                 </a>
-                <Link to="/" hash="contato" className="btn-ghost-navy">
+                <a href="/#contato" onClick={goTo("contato")} className="btn-ghost-navy">
                   Entre em Contato
-                </Link>
+                </a>
               </div>
             </motion.div>
           </div>
