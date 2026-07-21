@@ -166,6 +166,13 @@
 }
 
 .mobileLink {
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+
   margin-inline: -1.5rem;
   padding: 0.9rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -173,6 +180,7 @@
   font-size: 0.95rem;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
+
 .mobileLink:hover {
   color: var(--gold);
   background-color: rgba(255, 255, 255, 0.04);
@@ -181,4 +189,7 @@
 .mobileSchedule {
   margin-top: 1.25rem;
   align-self: flex-start;
+
+  border: none;
+  cursor: pointer;
 }

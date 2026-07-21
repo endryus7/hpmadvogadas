@@ -6,15 +6,6 @@ import { NAV, SITE, useSectionLink } from "@/data/site";
 import logo from "../../assets/images/logo.png";
 import styles from "./Navbar.module.css";
 
-const resetButton = {
-  background: "none",
-  border: "none",
-  font: "inherit",
-  textAlign: "left",
-  width: "100%",
-  cursor: "pointer",
-};
-
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -28,9 +19,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}
-    >
+    <header className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}>
       <div className={`container-x ${styles.bar}`}>
         <Link to="/" className={styles.logoLink}>
           <img src={logo} alt="Monograma HPM" className={styles.logoImg} />
@@ -92,15 +81,17 @@ export function Navbar() {
                   key={item.hash}
                   type="button"
                   onClick={(e) => {
-                    goTo(item.hash)(e);
                     setOpen(false);
+                    setTimeout(() => {
+                      goTo(item.hash)(e);
+                    }, 300);
                   }}
                   className={styles.mobileLink}
-                  style={resetButton}
                 >
                   {item.label}
                 </button>
               ))}
+
               <button
                 type="button"
                 onClick={(e) => {
@@ -108,7 +99,6 @@ export function Navbar() {
                   setOpen(false);
                 }}
                 className={`btn-gold ${styles.mobileSchedule}`}
-                style={{ border: "none", cursor: "pointer" }}
               >
                 Entre em Contato
               </button>
