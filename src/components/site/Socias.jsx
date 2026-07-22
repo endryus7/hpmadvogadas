@@ -5,6 +5,7 @@ import { SOCIAS } from "@/data/site";
 import { SectionTitle } from "./SectionTitle";
 import styles from "./Socias.module.css";
 
+// Extrai as iniciais do nome da sócia
 function getInitials(nome) {
   return nome
     .replace(/^Dra\.\s*/i, "")
@@ -15,6 +16,7 @@ function getInitials(nome) {
     .join("");
 }
 
+// Componente do avatar dentro do card
 function Avatar({ foto, nome }) {
   if (foto) {
     return (
@@ -23,7 +25,7 @@ function Avatar({ foto, nome }) {
           src={foto}
           alt={nome}
           className={styles.avatarPhoto}
-          loading="lazy"
+          loading="lazy" // adia o carregamento da imagem
         />
         <div className={styles.avatarFade} />
       </div>
@@ -57,6 +59,7 @@ export function Socias() {
           description="Conheça as advogadas responsáveis pelo atendimento. Cada uma conduz pessoalmente os casos das suas áreas de especialidade."
         />
 
+        {/* Gera um card pra cada sócia do array socias */}
         <div className={styles.grid}>
           {SOCIAS.map((s, i) => (
             <motion.div

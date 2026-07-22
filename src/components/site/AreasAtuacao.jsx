@@ -19,6 +19,7 @@ export function AreasAtuacao() {
           description="Atuamos nas áreas em que reunimos formação, experiência e leitura estratégica das particularidades de cada demanda."
         />
 
+        {/* Areas card */}
         <div className={styles.grid}>
           {AREAS.map((a, i) => (
             <motion.article
