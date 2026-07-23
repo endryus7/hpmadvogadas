@@ -47,7 +47,7 @@ export function ComoFunciona() {
             >
               <div className={styles.numberRow}>
                 <span className={styles.number}>{s.n}</span>
-                <span className={styles.rule} />
+                <span className={styles.rule} /> {/* Linha fina dourada */}
               </div>
               <h3 className={styles.title}>{s.title}</h3>
               <p className={styles.text}>{s.text}</p>

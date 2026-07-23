@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
+// Importa o array FAQ e renomeia para ITEMS
 import { FAQ as ITEMS } from "@/data/site";
 import { SectionTitle } from "./SectionTitle";
 import styles from "./FAQ.module.css";
 
 export function FAQ() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(0); // Guarda o ÍNDICE da pergunta aberta
   return (
     <section className={styles.section}>
       <div className={`container-x ${styles.grid}`}>
@@ -21,11 +22,11 @@ export function FAQ() {
             return (
               <div key={item.q}>
                 <button
-                  onClick={() => setOpen(isOpen ? null : i)}
+                  onClick={() => setOpen(isOpen ? null : i)} // Clicar na pergunta já aberta fecha ela (vira null) e fechada abre ela (vira o índice i);
                   className={styles.itemButton}
                   aria-expanded={isOpen}
                 >
-                  <span className={styles.question}>{item.q}</span>
+                  <span className={styles.question}>{item.q}</span> {/* + gira 45° (virando um x visualmente) quando a pergunta ta aberta */}
                   <span className={`${styles.iconWrap} ${isOpen ? styles.iconOpen : ""}`}>
                     <Plus className="h-4 w-4" strokeWidth={1.5} />
                   </span>

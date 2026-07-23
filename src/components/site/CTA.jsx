@@ -8,6 +8,7 @@ export function CTA() {
 
   return (
     <section className={styles.section}>
+      {/* Monograma HPM transparente ao fundo */}
       <div className={styles.monogramWrap}>
         <Monogram className="h-[420px] w-[640px]" strokeWidth={0.8} />
       </div>
@@ -27,12 +28,12 @@ export function CTA() {
             passo.
           </h2>
           <div className={styles.buttons}>
-            <a href="/#contato" onClick={goTo("contato")} className="btn-gold">
+            <a href="/#contato" onClick={goTo("contato")} className="btn-gold"> { /* Rola até a seção de Contato (formulário de verdade) */}
               Entre em Contato
             </a>
             <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">
               Fale no WhatsApp
-            </a>
+            </a> {/* WhatsApp geral do escritório */}
           </div>
         </motion.div>
       </div>
