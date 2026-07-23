@@ -12,6 +12,7 @@ import { Monogram } from "./Monogram";
 import styles from "./Hero.module.css";
 import heroFoto from "../../assets/images/hero-foto.webp";
 
+// Selos de confiança, array pra gerar os três blocos com .map() em vez de repetir o JSX
 const TRUST_BADGES = [
   { icon: ShieldCheck, label: "Atendimento Personalizado" },
   { icon: Scale, label: "Excelência Técnica" },
@@ -38,6 +39,7 @@ export function Hero() {
       </div>
 
       <div className={`container-x ${styles.layout}`}>
+        {/* motion.div faz o bloco de texto entrar com um fade assim que a página carrega */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,6 +76,7 @@ export function Hero() {
             </a>
           </div>
 
+          {/* Selos de confiança, gerados do array TRUST_BADGES */}
           <div className={styles.badges}>
             {TRUST_BADGES.map(({ icon: Icon, label }) => (
               <div key={label} className={styles.badge}>
@@ -85,6 +88,7 @@ export function Hero() {
         </motion.div>
       </div>
 
+      {/* Seta animada */}
       <motion.a
         href="/#sobre"
         onClick={goTo("sobre")}

@@ -1,10 +1,12 @@
 import { Landmark, Gavel, Users, ShoppingBag, ShieldCheck, Briefcase, Car } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
 
+// Fotos das sócias
 import mylennaFoto from "../assets/images/mylenna-montezano-vargas.webp";
 import shayaneFoto from "../assets/images/shayane-hermann-pacheco.webp";
 import marianaFoto from "../assets/images/mariana-piccoli.webp";
 
+// Dados do escritório
 export const SITE = {
   name: "Hermann, Piccoli & Montezano Advogadas Associadas",
   shortName: "HPM Advogadas",
@@ -17,7 +19,7 @@ export const SITE = {
     zip: "90480-200",
   },
   phone: "(51) 99190-2271",
-  phoneRaw: "5551991902271",
+  phoneRaw: "5551991902271", // URL do WhatsApp
   email: "hpmadvogadas@gmail.com",
   instagram: "https://www.instagram.com/hpmadvogadas/",
   instagramHandle: "@hpmadvogadas",
@@ -25,14 +27,19 @@ export const SITE = {
   mapsQuery: "Rua Anita Garibaldi, 1650, sala 1, Boa Vista, Porto Alegre - RS, 90480-200",
 };
 
+// Mensgem do whatsapp
 export const WHATSAPP_DEFAULT_MSG = "Olá! Gostaria de agendar um atendimento.";
 
-// Se phone não for informado, usa o número principal do escritório.
+/*
+  Gera o link do WhatsApp Web/App já com uma mensagem pré-escrita.
+
+  Se phone não for informado, usa o número principal do escritório.
+*/
 export function whatsappUrl(message = WHATSAPP_DEFAULT_MSG, phone = SITE.phoneRaw) {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
-// // TanStack Router pra navegar entre páginas
+// TanStack Router pra navegar entre páginas,força a rolagem
 export function useSectionLink() {
   const navigate = useNavigate();
   return (hash) => (e) => {
@@ -54,6 +61,7 @@ export const EMAILJS = {
   publicKey: "jdoV8f0wKGGy3lEvR",
 };
 
+// Lista das 7 áreas de atuação
 export const AREAS = [
   {
     slug: "direito-bancario",
@@ -100,6 +108,7 @@ export const AREAS = [
   },
 ];
 
+// Dados das três sócias
 export const SOCIAS = [
   {
     slug: "shayane-hermann-pacheco",
@@ -156,7 +165,6 @@ export const SOCIAS = [
     papel: "Direito de Família e Violência Doméstica",
     foto: mylennaFoto,
     whatsapp: "555193191967",
-    // número pessoal da Dra. Mylenna
     resumo:
       "Advogada familiarista com atuação em alimentos, guarda, divórcio, inventário e medidas de violência doméstica.",
     bio: "Advogada familiarista, com atuação em demandas de alimentos, guarda e convivência, alienação parental, divórcio, união estável, dissolução de união estável, inventário judicial e extrajudicial e curatela. Atua em conjunto com a advocacia criminal em medidas e defesas relacionadas à violência doméstica.",
@@ -174,10 +182,12 @@ export const SOCIAS = [
   },
 ];
 
+// Função auxiliar usada pela rota /socias/$slug pra buscar os dados da sócia certa, do "slug" que vem na URL.
 export function getSocia(slug) {
   return SOCIAS.find((s) => s.slug === slug);
 }
 
+// // Perguntas e respostas da seção FAQ
 export const FAQ = [
   {
     q: "Como funciona o primeiro contato?",
@@ -189,11 +199,11 @@ export const FAQ = [
   },
   {
     q: "Como funcionam os honorários e a consulta inicial?",
-    a: "Os honorários seguem o Código de Ética e a Tabela da OAB/RS e são combinados de forma transparente após a análise do caso. [Placeholder confirmar política de consulta inicial do escritório antes de publicar.]",
+    a: "Os honorários seguem o Código de Ética e a Tabela da OAB/RS e são combinados de forma transparente após a análise do caso.",
   },
   {
     q: "Quais documentos devo levar na primeira reunião?",
-    a: "Os documentos variam conforme a área e a natureza do caso. Após o primeiro contato, orientamos exatamente quais documentos são úteis para a análise. [Placeholder se o escritório quiser uma lista base por área, incluir aqui.]",
+    a: "Os documentos variam conforme a área e a natureza do caso. Após o primeiro contato, orientamos exatamente quais documentos são úteis para a análise.",
   },
   {
     q: "Em quais áreas o escritório atua?",
@@ -201,6 +211,7 @@ export const FAQ = [
   },
 ];
 
+// rota, hash (o id da seção pra onde o useSectionLink() deve rolar).
 export const NAV = [
   { label: "Início", to: "/", hash: "inicio" },
   { label: "Sobre", to: "/", hash: "sobre" },

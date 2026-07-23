@@ -46,6 +46,7 @@ export function Sobre() {
           }
         />
 
+        {/* Grade com cards de pilares, cada um animando a entrada  */}
         <div className={styles.grid}>
           {PILARES.map((p, i) => (
             <motion.div

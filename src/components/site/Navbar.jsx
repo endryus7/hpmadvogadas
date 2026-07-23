@@ -8,20 +8,22 @@ import styles from "./Navbar.module.css";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const goTo = useSectionLink();
+  const [open, setOpen] = useState(false); // menu hambúrguer está aberto ou fechado.
+  const goTo = useSectionLink(); // Hook que cuida da rolagem até seção
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 20); // Muda o estado "scrolled" quando a pessoa passa de 20px de rolagem
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true }); // Remove o listener quando o componente sai da tela
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
+    // A navbar fica sólida, quando o menu mobile está aberto o menu nunca fica com fundo transparente por cima do conteúdo da página.
     <header className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}>
       <div className={`container-x ${styles.bar}`}>
         <Link to="/" className={styles.logoLink}>
+        {/* Logo */}
           <img src={logo} alt="Monograma HPM" className={styles.logoImg} />
           <span className={styles.brandText}>
             <span className={styles.brandName}>Hermann, Piccoli & Montezano</span>
@@ -29,7 +31,9 @@ export function Navbar() {
           </span>
         </Link>
 
+        {/* Menu de navegação */}
         <nav className={styles.nav}>
+          {/* array NAV (data/site.js) para não repetir código pra cada link */}
           {NAV.map((item) => (
             <a
               key={item.hash}
@@ -57,6 +61,7 @@ export function Navbar() {
           </a>
         </div>
 
+        {/* Botão menu hambúrguer */}
         <button
           className={styles.menuButton}
           onClick={() => setOpen((v) => !v)}
@@ -65,6 +70,8 @@ export function Navbar() {
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
+
+      {/* AnimatePresence permite animar a saida de um elemento do DOM (o Framer Motion sozinho só anima entrada por padrão) */}
 
       <AnimatePresence>
         {open && (
@@ -81,6 +88,7 @@ export function Navbar() {
                   key={item.hash}
                   type="button"
                   onClick={(e) => {
+                    // Fecha o menu primeiro, depois de 300ms faz a rolagem até a seção. O atraso evita que a rolagem aconteça enquanto o painel ainda está encolhendo,
                     setOpen(false);
                     setTimeout(() => {
                       goTo(item.hash)(e);
