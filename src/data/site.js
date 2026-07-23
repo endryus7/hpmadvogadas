@@ -199,11 +199,11 @@ export const FAQ = [
   },
   {
     q: "Como funcionam os honorários e a consulta inicial?",
-    a: "Os honorários seguem o Código de Ética e a Tabela da OAB/RS e são combinados de forma transparente após a análise do caso. [Placeholder confirmar política de consulta inicial do escritório antes de publicar.]",
+    a: "Os honorários seguem o Código de Ética e a Tabela da OAB/RS e são combinados de forma transparente após a análise do caso.",
   },
   {
     q: "Quais documentos devo levar na primeira reunião?",
-    a: "Os documentos variam conforme a área e a natureza do caso. Após o primeiro contato, orientamos exatamente quais documentos são úteis para a análise. [Placeholder se o escritório quiser uma lista base por área, incluir aqui.]",
+    a: "Os documentos variam conforme a área e a natureza do caso. Após o primeiro contato, orientamos exatamente quais documentos são úteis para a análise.",
   },
   {
     q: "Em quais áreas o escritório atua?",
