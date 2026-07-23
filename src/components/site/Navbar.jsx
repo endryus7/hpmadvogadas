@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { NAV, SITE, useSectionLink } from "@/data/site";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.webp";
 import styles from "./Navbar.module.css";
 
 export function Navbar() {
@@ -22,13 +22,13 @@ export function Navbar() {
     // A navbar fica sólida, quando o menu mobile está aberto o menu nunca fica com fundo transparente por cima do conteúdo da página.
     <header className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}>
       <div className={`container-x ${styles.bar}`}>
-        <Link to="/" className={styles.logoLink}>
         {/* Logo */}
-          <img src={logo} alt="Monograma HPM" className={styles.logoImg} />
-          <span className={styles.brandText}>
-            <span className={styles.brandName}>Hermann, Piccoli & Montezano</span>
-            <span className={styles.brandSubtitle}>Advogadas Associadas</span>
-          </span>
+        <Link to="/" className={styles.logoLink}>
+          <img
+            src={logo}
+            alt="Hermann, Piccoli & Montezano Advogadas Associadas"
+            className={styles.logoImg}
+          />
         </Link>
 
         {/* Menu de navegação */}

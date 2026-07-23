@@ -9,14 +9,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: var(--gold);
-  color: var(--navy);
+  background: #25d366;
+  color: #ffffff;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 .button:hover {
   transform: scale(1.05);
-  background: var(--gold-soft);
+  background: #1ebe5b;
 }
 
 .ping {
@@ -24,7 +24,7 @@
   inset: 0;
   z-index: -10;
   border-radius: 9999px;
-  background: rgba(200, 166, 106, 0.4);
+  background: rgba(37, 211, 102, 0.4);
   animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 

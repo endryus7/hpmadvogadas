@@ -29,41 +29,19 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  color: var(--white);
+  flex-shrink: 0;
 }
 
 .logoImg {
-  height: 4rem;
-  width: auto;
+  display: block;
+  width: 300px;
+  height: auto;
 }
-@media (min-width: 640px) {
+
+@media (max-width: 640px) {
   .logoImg {
-    height: 4rem;
+    width: 230px;
   }
-}
-
-.brandText {
-  display: none;
-  flex-direction: column;
-  line-height: 1.25;
-}
-@media (min-width: 640px) {
-  .brandText {
-    display: flex;
-  }
-}
-
-.brandName {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-}
-
-.brandSubtitle {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--gold);
 }
 
 .nav {

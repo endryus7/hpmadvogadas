@@ -2,7 +2,7 @@ import { Instagram } from "lucide-react";
 import { AREAS, NAV, SITE, useSectionLink } from "@/data/site";
 import { Monogram } from "./Monogram";
 import { whatsappUrl } from "@/data/site";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.webp";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -18,13 +18,15 @@ export function Footer() {
       <div className={`container-x ${styles.grid}`}>
         <div className={styles.gridCol}>
           <div className={styles.logoRow}>
-            <img src={logo} alt="Monograma HPM" className={styles.logoImg} />
+            <img
+              src={logo}
+              alt="Hermann, Piccoli & Montezano Advogadas Associadas"
+              className={styles.logoImg}
+            />
           </div>
-          <p className={styles.brandName}>Hermann, Piccoli & Montezano</p>
-          <p className={styles.brandSubtitle}>Advogadas Associadas</p>
+
           <p className={styles.brandText}>
-            Advocacia com atendimento humanizado em Porto Alegre e on-line em
-            todo o Brasil.
+            Advocacia com atendimento humanizado em Porto Alegre e on-line em todo o Brasil.
           </p>
         </div>
 
