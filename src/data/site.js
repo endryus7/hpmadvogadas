@@ -56,8 +56,8 @@ export function useSectionLink() {
 
 // EmailJS
 export const EMAILJS = {
-  serviceId: "service_q8sjo5o",
-  templateId: "template_gzy88yp",
+  serviceId: "service_4ny39xy",
+  templateId: "template_m10p3id",
   publicKey: "jdoV8f0wKGGy3lEvR",
 };
 
