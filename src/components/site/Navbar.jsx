@@ -9,7 +9,7 @@ import logo from "../../assets/images/logo.webp";
 import styles from "./Navbar.module.css";
 
 export function Navbar() {
-  const [scrolled, setScrolled] =useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   const goTo = useSectionLink();
@@ -51,9 +51,7 @@ export function Navbar() {
           duration: 0.6,
           ease: "easeOut",
         }}
-        className={`${styles.header} ${
-          scrolled || open ? styles.headerScrolled : ""
-        }`}
+        className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}
       >
         <div className={`container-x ${styles.inner}`}>
           {/* Logo */}
@@ -94,11 +92,7 @@ export function Navbar() {
               <Instagram size={20} strokeWidth={1.7} />
             </a>
 
-            <a
-              href="/#contato"
-              onClick={goTo("contato")}
-              className={styles.cta}
-            >
+            <a href="/#contato" onClick={goTo("contato")} className={styles.cta}>
               Entre em Contato
             </a>
           </div>
@@ -110,7 +104,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Abrir Menu"
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </motion.header>
@@ -138,18 +132,16 @@ export function Navbar() {
               }}
             >
               <div className={styles.mobileHeader}>
-                <img
-                  src={logo}
-                  alt=""
-                  className={styles.mobileLogo}
-                />
+                <img src={logo} alt="" className={styles.mobileLogo} />
 
-                <button
-                  onClick={() => setOpen(false)}
-                  className={styles.closeButton}
-                >
+                <button onClick={() => setOpen(false)} className={styles.closeButton}>
                   <X size={22} />
                 </button>
+              </div>
+
+              <div className={styles.mobileDescription}>
+                Atendimento jurídico especializado em Direito Civil, Previdenciário, Trabalhista,
+                Família e demais áreas de atuação do escritório.
               </div>
 
               <nav className={styles.mobileNav}>
