@@ -15,19 +15,16 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
 }
 
 .inner {
   max-width: 1280px;
   margin: 0 auto;
   min-height: 88px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 48px;
-
   transition: min-height 0.35s ease;
 }
 
@@ -35,10 +32,7 @@
   min-height: 72px;
 }
 
-/* ===================================================== */
 /* LOGO */
-/* ===================================================== */
-
 .logoLink {
   display: flex;
   align-items: center;
@@ -55,10 +49,7 @@
   transform: scale(1.015);
 }
 
-/* ===================================================== */
 /* MENU */
-/* ===================================================== */
-
 .nav {
   display: none;
 }
@@ -73,35 +64,22 @@
 
 .navLink {
   position: relative;
-
   color: rgba(255, 255, 255, 0.82);
-
   text-decoration: none;
-
   font-size: 0.93rem;
-
   letter-spacing: 0.02em;
-
   transition: color 0.3s ease;
 }
 
 .navLink::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
-
   bottom: -8px;
-
   transform: translateX(-50%);
-
   width: 0;
-
   height: 1px;
-
   background: var(--gold);
-
   transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -113,10 +91,7 @@
   width: 100%;
 }
 
-/* ===================================================== */
 /* RIGHT */
-/* ===================================================== */
-
 .right {
   display: none;
 }
@@ -124,38 +99,26 @@
 @media (min-width: 1024px) {
   .right {
     display: flex;
-
     align-items: center;
-
     gap: 18px;
   }
 }
 
 .instagram {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   width: 42px;
-
   height: 42px;
-
   border-radius: 50%;
-
   border: 1px solid rgba(255, 255, 255, 0.12);
-
   color: rgba(255, 255, 255, 0.75);
-
   transition: 0.3s;
 }
 
 .instagram:hover {
   border-color: var(--gold);
-
   color: var(--gold);
-
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -183,18 +146,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
-  border: none;
-  background: none;
-  color: white;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
   cursor: pointer;
-  transition: 0.25s;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .menuButton:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(242, 211, 148, 0.25);
 }
 
 @media (min-width: 1024px) {
@@ -202,7 +169,6 @@
     display: none;
   }
 }
-
 
 /* DRAWER */
 
@@ -217,28 +183,29 @@
 .backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .mobileDrawer {
   position: relative;
-  width: min(360px, 85vw);
-  height: 100vh;
-  background: #09142e;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1;
+  width: min(380px, 86vw);
+  height: 100%;
+  padding: 24px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 30px;
-  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+  background: #09142e;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.45);
 }
 
 .mobileHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 18px;
 }
 
 .mobileLogo {
@@ -246,16 +213,16 @@
 }
 
 .closeButton {
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  color: white;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
   transition: 0.25s;
 }
 
@@ -263,35 +230,60 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
+.mobileDescription {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin-bottom: 34px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .mobileNav {
   display: flex;
   flex-direction: column;
-  margin-top: 28px;
+  gap: 6px;
+  flex: 1;
 }
 
 .mobileLink {
-  padding: 18px 0;
-  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 16px 18px;
+  background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: left;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.25s;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  font-weight: 500;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    padding-left 0.3s,
+    transform 0.3s;
 }
 
 .mobileLink:hover {
-  padding-left: 10px;
   color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 24px;
+  transform: translateX(4px);
+}
+
+.mobileLink:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 
 .mobileFooter {
   margin-top: auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding-top: 30px;
 }
 
 .mobileInstagram {
@@ -305,18 +297,27 @@
 
 .mobileButton {
   width: 100%;
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  cursor: pointer;
   background: var(--gold);
   color: #09142e;
+  font-size: 0.9rem;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+  letter-spacing: 0.03em;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .mobileButton:hover {
-  background: #f2d394;
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* RESPONSIVO */
@@ -339,6 +340,8 @@
   }
 
   .mobileDrawer {
-    width: 100%;
+    width: min(380px, 90vw);
+    max-width: 380px;
+    padding: 24px;
   }
 }

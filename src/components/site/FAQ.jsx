@@ -7,7 +7,7 @@ import { SectionTitle } from "./SectionTitle";
 import styles from "./FAQ.module.css";
 
 export function FAQ() {
-  const [open, setOpen] = useState(0); // Guarda o ÍNDICE da pergunta aberta
+  const [open, setOpen] = useState(null); // Guarda o ÍNDICE da pergunta aberta
   return (
     <section className={styles.section}>
       <div className={`container-x ${styles.grid}`}>
