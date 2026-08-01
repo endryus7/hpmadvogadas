@@ -54,11 +54,11 @@ export function useSectionLink() {
   };
 }
 
-// EmailJS
+// EmailJS — credenciais vêm do .env (nunca hardcode aqui; veja .env.example)
 export const EMAILJS = {
-  serviceId: "service_4ny39xy",
-  templateId: "template_m10p3id",
-  publicKey: "jdoV8f0wKGGy3lEvR",
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 };
 
 // Lista das 7 áreas de atuação

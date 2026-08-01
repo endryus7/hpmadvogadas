@@ -42,6 +42,13 @@
   }
 }
 
+.requiredNote {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  color: rgba(58, 58, 58, 0.55);
+}
+
 .fieldFull {
   grid-column: 1 / -1;
 }
@@ -81,6 +88,59 @@
   outline: none;
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(200, 166, 106, 0.18);
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  background: var(--white);
+  padding: 0 0.9rem;
+  border-radius: 2px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.inputWrap svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.inputBare {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border-radius: 0;
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.inputWrap:has(input:focus) {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 166, 106, 0.18);
+}
+
+.privacyNote {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: rgba(58, 58, 58, 0.55);
+}
+
+.privacyNote svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--gold);
 }
 
 .textarea {
