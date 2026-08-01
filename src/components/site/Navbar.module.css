@@ -123,6 +123,9 @@
 }
 
 .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 10px 22px;
   border-radius: 8px;
   background: var(--gold);
