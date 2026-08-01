@@ -20,16 +20,12 @@
 .inner {
   max-width: 1280px;
   margin: 0 auto;
-  min-height: 88px;
+  min-height: 84px;
+  padding-inline: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
-  transition: min-height 0.35s ease;
-}
-
-.headerScrolled .inner {
-  min-height: 72px;
+  gap: 32px;
 }
 
 /* LOGO */
@@ -54,20 +50,33 @@
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .nav {
     display: flex;
     align-items: center;
-    gap: 38px;
+    gap: 26px;
   }
+}
+
+/* Evita que o toque em cima do texto seja interpretado como seleção em vez
+   de clique — mesmo ajuste feito no site do André. */
+.navLink,
+.cta,
+.mobileLink,
+.mobileButton,
+.logoLink {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .navLink {
   position: relative;
   color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
-  font-size: 0.93rem;
+  font-size: 0.9rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
@@ -96,7 +105,7 @@
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .right {
     display: flex;
     align-items: center;
@@ -126,12 +135,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 22px;
+  padding: 10px 20px;
   border-radius: 8px;
   background: var(--gold);
   color: #09142e;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
+  white-space: nowrap;
   text-decoration: none;
   transition: 0.35s;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
@@ -167,7 +177,7 @@
   border-color: rgba(242, 211, 148, 0.25);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .menuButton {
     display: none;
   }
@@ -343,8 +353,8 @@
   }
 
   .mobileDrawer {
-    width: min(380px, 90vw);
-    max-width: 380px;
+    width: 100%;
+    max-width: 100%;
     padding: 24px;
   }
 }

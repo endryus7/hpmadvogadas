@@ -44,8 +44,13 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  section[id] {
+    scroll-margin-top: 100px;
   }
   body {
+    overflow-x: hidden;
     background-color: var(--color-background);
     color: var(--color-ink);
     font-family: var(--font-sans);

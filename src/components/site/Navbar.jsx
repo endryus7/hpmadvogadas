@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Instagram, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,6 +11,10 @@ import styles from "./Navbar.module.css";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const menuButtonRef = useRef(null);
+  const panelRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
   const goTo = useSectionLink();
 
@@ -29,17 +33,57 @@ export function Navbar() {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
 
+    if (open) {
+      closeButtonRef.current?.focus();
+    } else {
+      menuButtonRef.current?.focus();
+    }
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (e.key === "Tab" && panelRef.current) {
+        const focusable = panelRef.current.querySelectorAll(
+          'button, a[href], [tabindex]:not([tabindex="-1"])',
+        );
+
+        if (!focusable.length) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+
+        if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const handleMobileClick = (hash) => (e) => {
     setOpen(false);
-
-    setTimeout(() => {
-      goTo(hash)(e);
-    }, 250);
+    document.body.style.overflow = "";
+    goTo(hash)(e);
   };
 
   return (
@@ -53,7 +97,7 @@ export function Navbar() {
         }}
         className={`${styles.header} ${scrolled || open ? styles.headerScrolled : ""}`}
       >
-        <div className={`container-x ${styles.inner}`}>
+        <div className={styles.inner}>
           {/* Logo */}
 
           <Link to="/" className={styles.logoLink}>
@@ -101,9 +145,12 @@ export function Navbar() {
           {/* Mobile */}
 
           <button
+            ref={menuButtonRef}
             className={styles.menuButton}
             onClick={() => setOpen((v) => !v)}
             aria-label="Abrir Menu"
+            aria-expanded={open}
+            aria-controls="hpm-mobile-menu"
           >
             {open ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -122,6 +169,11 @@ export function Navbar() {
             />
 
             <motion.aside
+              id="hpm-mobile-menu"
+              ref={panelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu de navegação"
               className={styles.mobileDrawer}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -135,7 +187,12 @@ export function Navbar() {
               <div className={styles.mobileHeader}>
                 <img src={logo} alt="" className={styles.mobileLogo} />
 
-                <button onClick={() => setOpen(false)} className={styles.closeButton}>
+                <button
+                  ref={closeButtonRef}
+                  onClick={() => setOpen(false)}
+                  className={styles.closeButton}
+                  aria-label="Fechar menu"
+                >
                   <X size={22} />
                 </button>
               </div>
@@ -170,13 +227,7 @@ export function Navbar() {
 
                 <button
                   className={styles.mobileButton}
-                  onClick={(e) => {
-                    setOpen(false);
-
-                    setTimeout(() => {
-                      goTo("contato")(e);
-                    }, 250);
-                  }}
+                  onClick={handleMobileClick("contato")}
                 >
                   <Mail size={17} strokeWidth={1.8} />
                   Entre em Contato

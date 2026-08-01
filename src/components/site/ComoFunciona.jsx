@@ -27,7 +27,7 @@ const STEPS = [
 
 export function ComoFunciona() {
   return (
-    <section className={styles.section}>
+    <section id="como-funciona" className={styles.section}>
       <div className="container-x">
         <SectionTitle
           eyebrow="Como funciona"
