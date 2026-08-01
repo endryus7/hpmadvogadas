@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Instagram } from "lucide-react";
+import { Menu, X, Instagram, Mail } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { NAV, SITE, useSectionLink } from "@/data/site";
@@ -93,6 +93,7 @@ export function Navbar() {
             </a>
 
             <a href="/#contato" onClick={goTo("contato")} className={styles.cta}>
+              <Mail size={16} strokeWidth={1.8} />
               Entre em Contato
             </a>
           </div>
@@ -177,6 +178,7 @@ export function Navbar() {
                     }, 250);
                   }}
                 >
+                  <Mail size={17} strokeWidth={1.8} />
                   Entre em Contato
                 </button>
               </div>
