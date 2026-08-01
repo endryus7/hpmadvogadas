@@ -212,5 +212,6 @@ export const NAV = [
   { label: "Sobre", to: "/", hash: "sobre" },
   { label: "Sócias", to: "/", hash: "socias" },
   { label: "Áreas de Atuação", to: "/", hash: "areas" },
+  { label: "Como Funciona", to: "/", hash: "como-funciona" },
   { label: "Contato", to: "/", hash: "contato" },
 ];
