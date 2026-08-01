@@ -2,7 +2,7 @@
 > Site institucional desenvolvido para escritório de advocacia real (Hermann, Piccoli & Montezano Advogadas Associadas), recém-fundado por três sócias em Porto Alegre/RS.
 > O visitante pode conhecer o escritório, as áreas de atuação e o perfil de cada sócia com página individual e SEO próprio além de entrar em contato pelo formulário, WhatsApp ou e-mail, inclusive falando direto com a sócia responsável pela área de interesse.
 
-![preview do projeto](https://github.com/user-attachments/assets/bd36df70-bf4c-4713-a1ae-cba3c62cd544)
+![preview do projeto](https://github.com/user-attachments/assets/453747af-8880-4442-860b-78d79d20149c)
 
 🌐 **[HPM Advogadas](https://hpmadvogadas.vercel.app)**
 
