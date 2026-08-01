@@ -340,8 +340,8 @@
   }
 
   .mobileDrawer {
-    width: min(380px, 90vw);
-    max-width: 380px;
+    width: 100%;
+    max-width: 100%;
     padding: 24px;
   }
 }
