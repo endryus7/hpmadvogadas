@@ -4,7 +4,7 @@
 
 ![preview do projeto](https://github.com/user-attachments/assets/453747af-8880-4442-860b-78d79d20149c)
 
-🌐 **[HPM Advogadas](https://hpmadvogadas.vercel.app)**
+🌐 **[HPM Advogadas](https://www.hpmadvogadas.com.br)**
 
 ---
 
