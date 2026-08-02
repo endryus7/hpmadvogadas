@@ -17,7 +17,7 @@ React · JavaScript · TanStack Start · TanStack Router · Vite · Tailwind CSS
 -  Apresentação institucional do escritório e das 7 áreas de atuação
 -  Página individual para cada sócia, com rota própria e SEO dedicado (title, description, Open Graph)
 -  Formulário de contato com validação (React Hook Form + Yup) e envio por e-mail via EmailJS
--  Contato direto pelo WhatsApp — número geral do escritório ou da sócia específica
+-  Contato direto pelo WhatsApp
 -  Seção de perguntas frequentes (FAQ) em formato acordeão
 -  Imagens otimizadas em WebP para carregamento rápido
 -  Design responsivo com foco em mobile
