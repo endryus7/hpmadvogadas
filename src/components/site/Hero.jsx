@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
+  Mail,
   MessageCircle,
   ShieldCheck,
   Scale,
@@ -66,13 +67,14 @@ export function Hero() {
           </p>
 
           <div className={styles.buttons}>
-            <a href="/#contato" onClick={goTo("contato")} className="btn-gold">
-              Entre em Contato
-              <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-            </a>
-            <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-outline-gold">
+            <a href={whatsappUrl()} target="_blank" rel="noreferrer" className="btn-gold">
               <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
               Fale no WhatsApp
+            </a>
+            <a href="/#contato" onClick={goTo("contato")} className="btn-outline-gold">
+              <Mail className="h-4 w-4" strokeWidth={1.5} />
+              Entre em Contato
+              <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
             </a>
           </div>
 
